@@ -1,8 +1,7 @@
-[toc]
+Gradle Manual
+===
 
-# Gradle Manual
-
-https://gradle.org/
+<https://gradle.org/>
 
 https://gradle.org/docs/
 
@@ -12,7 +11,7 @@ https://github.com/gradle/gradle
 
 ## Installation [>>](https://gradle.org/install/)
 
-https://gradle.org/releases/
+<https://gradle.org/releases/>
 
 **注意：要求 JDK 7+**
 ```

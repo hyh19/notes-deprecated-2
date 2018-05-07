@@ -1,10 +1,8 @@
-[TOC]
-
 # Kotlin Manual
 
-https://kotlinlang.org/
+<https://kotlinlang.org/>
 
-https://github.com/JetBrains/kotlin
+<https://github.com/JetBrains/kotlin>
 
 ## Installation
 
@@ -34,7 +32,7 @@ Type :help for help, :quit for quit
 
 ## References
 
-https://kotlinlang.org/docs/reference/
+<https://kotlinlang.org/docs/reference/>
 
 [Kotlin Standard Library](https://kotlinlang.org/api/latest/jvm/stdlib/index.html)
 
