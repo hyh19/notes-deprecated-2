@@ -2,7 +2,7 @@
 
 # Vert.x Manual
 
-http://vertx.io/
+<http://vertx.io/>
 
 ## Installation [>>](https://vertx.io/download/)
 
@@ -63,7 +63,13 @@ Render documentation
 
 https://github.com/vert-x3/vertx-examples/tree/master/kafka-examples
 
+## Reactive
 
+### Kotlin coroutines
+
+[Manual](https://vertx.io/docs/vertx-lang-kotlin-coroutines/kotlin/)
+
+[Examples](https://github.com/vert-x3/vertx-examples/tree/master/kotlin-examples/coroutines)
 
 ## Tutorials
 
