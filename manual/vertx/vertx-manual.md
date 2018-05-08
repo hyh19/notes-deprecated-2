@@ -1,5 +1,3 @@
-[toc]
-
 # Vert.x Manual
 
 <http://vertx.io/>
@@ -7,17 +5,20 @@
 ## Installation [>>](https://vertx.io/download/)
 
 ### NPM
+
 ```bash
 npm install vertx3-min
 npm install vertx3-full
 ```
 
 ### SDKMan
+
 ```bash
 sdk install vertx
 ```
 
 ### Homebrew
+
 ```bash
 brew install vert.x
 ```
@@ -33,7 +34,8 @@ vertx run echo_server.js
 ```
 
 ## Core
-https://vertx.io/docs/#core
+
+<https://vertx.io/docs/#core>
 
 [Examples](https://github.com/vert-x3/vertx-examples/tree/master/core-examples)
 
@@ -44,7 +46,7 @@ https://vertx.io/docs/#core
 
 ## Web
 
-https://vertx.io/docs/#web
+<https://vertx.io/docs/#web>
 
 ## Services [>>](https://vertx.io/docs/#services)
 
@@ -54,14 +56,15 @@ https://vertx.io/docs/#web
 ## Codegen [>>](https://github.com/vert-x3/vertx-codegen)
 
 Render documentation
-```
-> mvn clean package -Pdocs
-> open target/docs/vertx-codegen/java/index.html
+
+```bash
+mvn clean package -Pdocs
+open target/docs/vertx-codegen/java/index.html
 ```
 
 ## Kafka Client [>>](https://vertx.io/docs/vertx-kafka-client/java/)
 
-https://github.com/vert-x3/vertx-examples/tree/master/kafka-examples
+<https://github.com/vert-x3/vertx-examples/tree/master/kafka-examples>
 
 ## Reactive
 
@@ -71,18 +74,20 @@ https://github.com/vert-x3/vertx-examples/tree/master/kafka-examples
 
 [Examples](https://github.com/vert-x3/vertx-examples/tree/master/kotlin-examples/coroutines)
 
+[Soruce](https://github.com/vert-x3/vertx-lang-kotlin/tree/master/vertx-lang-kotlin-coroutines)
+
 ## Tutorials
 
-https://vertx.io/materials/
+<https://vertx.io/materials/>
 
-https://github.com/vert-x3/vertx-awesome
+<https://github.com/vert-x3/vertx-awesome>
 
 [Vert.x 官方文档中文翻译](https://vertxchina.github.io/vertx-translation-chinese/)
 
 ## Examples
 
-https://github.com/vert-x3/vertx-examples
+<https://github.com/vert-x3/vertx-examples>
 
 ## Tools
 
-https://github.com/vert-x3/vertx-maven-starter
+<https://github.com/vert-x3/vertx-maven-starter>
