@@ -1,8 +1,28 @@
-[TOC]
+# [Vert.x core examples](https://github.com/vert-x3/vertx-examples/tree/master/core-examples)
 
-# Vert.x core examples [>>](https://github.com/vert-x3/vertx-examples/tree/master/core-examples)
+运行示例代码的两种方式
 
-## Embedding [>>](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#embedding)
+- 在 IDE 上执行 `main` 方法
+- 在终端上执行以下命令
+
+```bash
+mvn clean compile
+vertx run fully-qualified-name-of-the-example -cp target/classes
+```
+
+## [Dependencies required](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#dependencies-required)
+
+Maven 依赖 [`pom.xml`](https://github.com/vert-x3/vertx-examples/blob/master/core-examples/pom.xml)
+
+```xml
+<dependency>
+  <groupId>io.vertx</groupId>
+  <artifactId>vertx-core</artifactId>
+  <version>3.5.1</version>
+</dependency>
+```
+
+## [Embedding](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#embedding)
 
 [Interface Vertx](http://vertx.io/docs/apidocs/io/vertx/core/Vertx.html) \
 [Interface HttpServer](http://vertx.io/docs/apidocs/io/vertx/core/http/HttpServer.html) \
