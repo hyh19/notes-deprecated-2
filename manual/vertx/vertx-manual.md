@@ -2,6 +2,23 @@
 
 <http://vertx.io/>
 
+- [Vert.x Manual](#vertx-manual)
+    - [Installation >>](#installation)
+        - [NPM](#npm)
+        - [SDKMan](#sdkman)
+        - [Homebrew](#homebrew)
+    - [Commands](#commands)
+    - [Core](#core)
+    - [Web](#web)
+    - [Services >>](#services)
+    - [Codegen >>](#codegen)
+    - [Kafka Client >>](#kafka-client)
+    - [Reactive](#reactive)
+        - [Kotlin coroutines](#kotlin-coroutines)
+    - [Tutorials](#tutorials)
+    - [Examples](#examples)
+    - [Tools](#tools)
+
 ## Installation [>>](https://vertx.io/download/)
 
 ### NPM
@@ -33,16 +50,11 @@ cd core-examples/src/main/js/echo
 vertx run echo_server.js
 ```
 
-## Core
-
-<https://vertx.io/docs/#core>
+## [Core](https://vertx.io/docs/#core)
 
 [Examples](https://github.com/vert-x3/vertx-examples/tree/master/core-examples)
 
-### Java
-
-[Manual](https://vertx.io/docs/vertx-core/java/) \
-[API](https://vertx.io/docs/apidocs/)
+Java [Manual](https://vertx.io/docs/vertx-core/java/) [API](https://vertx.io/docs/apidocs/)
 
 ## Web
 
