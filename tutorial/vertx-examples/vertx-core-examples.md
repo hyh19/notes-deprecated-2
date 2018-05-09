@@ -157,11 +157,11 @@ Kotlin Code 跳过
 
 > network io | 网络读写
 
-## Event bus examples [>>](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#event-bus-examples)
+## [Event bus examples](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#event-bus-examples)
 
-### Point to point [>>](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#point-to-point)
+### [Point to point](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#point-to-point)
 
-**API**
+Java API
 
 - [Interface EventBus](https://vertx.io/docs/apidocs/io/vertx/core/eventbus/EventBus.html)
 - [Interface Message<T>](https://vertx.io/docs/apidocs/io/vertx/core/eventbus/Message.html)
@@ -169,45 +169,44 @@ Kotlin Code 跳过
 - [send](https://vertx.io/docs/apidocs/io/vertx/core/eventbus/EventBus.html#send-java.lang.String-java.lang.Object-io.vertx.core.Handler-)
 - [consumer](https://vertx.io/docs/apidocs/io/vertx/core/eventbus/EventBus.html#consumer-java.lang.String-io.vertx.core.Handler-)
 
-**Codes**
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/eventbus/pointtopoint)
 
-- [Java](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/eventbus/pointtopoint)
-- [Kotlin](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/kotlin/io/vertx/example/core/eventbus/pointtopoint)
+[Kotlin Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/kotlin/io/vertx/example/core/eventbus/pointtopoint)
+
+注意：在命令行运行要加上 `-cluster` 选项，接下来的几个示例不再提示。
+
 ```bash
 vertx run Receiver.kt -cluster
 vertx run Sender.kt -cluster
 ```
 
-### Publish / Subscribe [>>](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#publish--subscribe)
+### [Publish / Subscribe](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#publish--subscribe)
 
-**API**
+Java API
 
 - [publish](https://vertx.io/docs/apidocs/io/vertx/core/eventbus/EventBus.html#publish-java.lang.String-java.lang.Object-)
 
-**Codes**
+[Java Code](https://github.com/vert-x3/vertx-examples/blob/master/core-examples/src/main/java/io/vertx/example/core/eventbus/pubsub)
 
-- [Java](https://github.com/vert-x3/vertx-examples/blob/master/core-examples/src/main/java/io/vertx/example/core/eventbus/pubsub)
-- [Kotlin](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/kotlin/io/vertx/example/core/eventbus/pubsub)
+[Kotlin Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/kotlin/io/vertx/example/core/eventbus/pubsub)
 
-### MessageCodec [>>](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#messagecodec)
+### [MessageCodec](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#messagecodec)
 
-**API**
+Java API
 
 - [Interface MessageCodec<S,R>](https://vertx.io/docs/apidocs/io/vertx/core/eventbus/MessageCodec.html)
 
-**Codes**
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/eventbus/messagecodec)
 
-- [Java](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/eventbus/messagecodec)
+## [Future](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#future)
 
-## Future [>>](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#future)
-
-**API**
+Java API
 
 - [compose](https://vertx.io/docs/apidocs/io/vertx/core/Future.html#compose-java.util.function.Function-)
 
-**Codes**
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/future)
 
-- [Java](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/future)
+复习到这 180509
 
 ## Verticle examples [>>](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#verticle-examples)
 
