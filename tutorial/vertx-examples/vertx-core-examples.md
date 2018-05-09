@@ -28,6 +28,18 @@ Maven 依赖 [`pom.xml`](https://github.com/vert-x3/vertx-examples/blob/master/c
 
 ## [Embedding](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#embedding)
 
+```java
+package io.vertx.example.core.embed;
+
+import io.vertx.core.Vertx;
+
+public class EmbeddedServer {
+    public static void main(String[] args) {
+        Vertx.vertx().createHttpServer().requestHandler(req -> req.response().end("Hello World!")).listen(8080);
+    }
+}
+```
+
 Java API
 
 - [Interface Vertx](http://vertx.io/docs/apidocs/io/vertx/core/Vertx.html)
@@ -52,17 +64,37 @@ Vertx.vertx().createHttpServer().requestHandler(req -> req.response().end("Hello
 
 ### [Simple](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#simple)
 
-**API**
+```java
+package io.vertx.example.core.http.simple;
 
-Java
+import io.vertx.core.AbstractVerticle;
+import io.vertx.core.Vertx;
+
+public class Server extends AbstractVerticle {
+
+    public static void main(String[] args) {
+        Vertx.vertx().deployVerticle(new Server());
+    }
+
+    @Override
+    public void start() throws Exception {
+        vertx.createHttpServer().requestHandler(req -> {
+            req.response().putHeader("content-type", "text/html").end("<html><body><h1>Hello from vert.x!</h1></body></html>");
+        }).listen(8080);
+    }
+}
+```
+
+Java API
+
 - [Class AbstractVerticle](https://vertx.io/docs/apidocs/io/vertx/core/AbstractVerticle.html)
 - [Interface Verticle](https://vertx.io/docs/apidocs/io/vertx/core/Verticle.html)
 - [Interface Future<T>](https://vertx.io/docs/apidocs/io/vertx/core/Future.html)
 - [Interface AsyncResult<T>](http://vertx.io/docs/apidocs/io/vertx/core/AsyncResult.html)
 
-**Codes**
-- [Java](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/http/simple)
-- [Kotlin](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/kotlin/io/vertx/example/core/http/simple)
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/http/simple)
+
+[Kotlin Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/kotlin/io/vertx/example/core/http/simple)
 
 ### HTTPS
 
@@ -76,52 +108,54 @@ Java
 
 跳过
 
-### Sendfile [>>](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#sendfile)
+### [Sendfile](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#sendfile)
 
-**Codes**
-- [Java](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/http/sendfile)
-- [Kotlin](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/kotlin/io/vertx/example/core/http/sendfile)
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/http/sendfile)
 
+[Kotlin Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/kotlin/io/vertx/example/core/http/sendfile)
 
-### Simple form [>>](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#simple-form)
+### [Simple form](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#simple-form)
 
-**API**
+Java API
+
 - [Interface MultiMap](http://vertx.io/docs/apidocs/io/vertx/core/MultiMap.html)
 - [setChunked](https://vertx.io/docs/apidocs/io/vertx/core/http/HttpServerResponse.html#setChunked-boolean-)
 - [setExpectMultipart](https://vertx.io/docs/apidocs/io/vertx/core/http/HttpServerRequest.html#setExpectMultipart-boolean-)
 - [endHandler](https://vertx.io/docs/apidocs/io/vertx/core/http/HttpServerRequest.html#endHandler-io.vertx.core.Handler-)
 - [formAttributes](https://vertx.io/docs/apidocs/io/vertx/core/http/HttpServerRequest.html#formAttributes--)
 
-**Codes**
-- [Java](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/http/simpleform)
-- [Kotlin](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/kotlin/io/vertx/example/core/http/simpleform)
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/http/simpleform)
 
-### Simple form file upload [>>](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#simple-form-file-upload)
+[Kotlin Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/kotlin/io/vertx/example/core/http/simpleform)
 
-**API**
+### [Simple form file upload](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#simple-form-file-upload)
+
+Java API
+
 - [Interface HttpServerFileUpload](http://vertx.io/docs/apidocs/io/vertx/core/http/HttpServerFileUpload.html)
 - [uploadHandler](https://vertx.io/docs/apidocs/io/vertx/core/http/HttpServerRequest.html#uploadHandler-io.vertx.core.Handler-)
 - [exceptionHandler](https://vertx.io/docs/apidocs/io/vertx/core/http/HttpServerFileUpload.html#exceptionHandler-io.vertx.core.Handler-)
 - [endHandler](https://vertx.io/docs/apidocs/io/vertx/core/http/HttpServerFileUpload.html#endHandler-io.vertx.core.Handler-)
 - [streamToFileSystem](https://vertx.io/docs/apidocs/io/vertx/core/http/HttpServerFileUpload.html#streamToFileSystem-java.lang.String-)
 
-**Codes**
-- [Java](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/http/simpleformupload)
-- [Kotlin](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/kotlin/io/vertx/example/core/http/simpleformupload)
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/http/simpleformupload)
 
-### Http request body upload [>>](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#http-request-body-upload)
+[Kotlin Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/kotlin/io/vertx/example/core/http/simpleformupload)
 
-**API**
+### [Http request body upload](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#http-request-body-upload)
+
+Java API
 
 - [Interface FileSystem](http://vertx.io/docs/apidocs/io/vertx/core/file/FileSystem.html)
 - [Interface AsyncFile](http://vertx.io/docs/apidocs/io/vertx/core/file/AsyncFile.html)
 - [Interface Pump](http://vertx.io/docs/apidocs/io/vertx/core/streams/Pump.html)
 - [open](https://vertx.io/docs/apidocs/io/vertx/core/file/FileSystem.html#open-java.lang.String-io.vertx.core.file.OpenOptions-io.vertx.core.Handler-)
 
-**Codes**
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/http/upload)
 
-- [Java](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/http/upload)
-- Kotlin 跳过
+Kotlin Code 跳过
+
+> network io | 网络读写
 
 ## Event bus examples [>>](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#event-bus-examples)
 
