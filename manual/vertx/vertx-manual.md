@@ -2,24 +2,29 @@
 
 <http://vertx.io/>
 
-- [Vert.x Manual](#vertx-manual)
-    - [Installation >>](#installation)
-        - [NPM](#npm)
-        - [SDKMan](#sdkman)
-        - [Homebrew](#homebrew)
-    - [Commands](#commands)
-    - [Core](#core)
-    - [Web](#web)
-    - [Services >>](#services)
-    - [Codegen >>](#codegen)
-    - [Kafka Client >>](#kafka-client)
-    - [Reactive](#reactive)
-        - [Kotlin coroutines](#kotlin-coroutines)
-    - [Tutorials](#tutorials)
-    - [Examples](#examples)
-    - [Tools](#tools)
+## [Installation](https://vertx.io/download/)
 
-## Installation [>>](https://vertx.io/download/)
+### Maven
+
+`pom.xml`
+
+```xml
+<dependency>
+  <groupId>io.vertx</groupId>
+  <artifactId>vertx-core</artifactId>
+  <version>3.5.1</version>
+</dependency>
+```
+
+### Gradle
+
+`build.gradle`
+
+```gradle
+dependencies {
+  compile 'io.vertx:vertx-core:3.5.1'
+}
+```
 
 ### NPM
 

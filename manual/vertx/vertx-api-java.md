@@ -1,18 +1,16 @@
+# [Vert.x Java API](http://vertx.io/docs/apidocs/)
+
 [TOC]
 
-# Vert.x API (Java) [>>](http://vertx.io/docs/apidocs/)
-
-## All Classes [>>](https://vertx.io/docs/apidocs/allclasses-frame.html)
+## [All Classes](https://vertx.io/docs/apidocs/allclasses-frame.html)
 
 ## `io.vertx.core.*`
 
-**[Package io.vertx.core](http://vertx.io/docs/apidocs/io/vertx/core/package-summary.html)**
+### [`io.vertx.core`](http://vertx.io/docs/apidocs/io/vertx/core/package-summary.html)
 
 - [Interface AsyncResult<T>](http://vertx.io/docs/apidocs/io/vertx/core/AsyncResult.html)
 - [Interface Future<T>](https://vertx.io/docs/apidocs/io/vertx/core/Future.html)
 - [Interface Handler<E>](http://vertx.io/docs/apidocs/io/vertx/core/Handler.html)
-- [Interface HttpServerRequest](http://vertx.io/docs/apidocs/io/vertx/core/http/HttpServerRequest.html)
-- [Interface HttpServerResponse](http://vertx.io/docs/apidocs/io/vertx/core/http/HttpServerResponse.html)
 - [Interface MultiMap](http://vertx.io/docs/apidocs/io/vertx/core/MultiMap.html)
 - [Interface Verticle](https://vertx.io/docs/apidocs/io/vertx/core/Verticle.html)
 - [Interface Vertx](http://vertx.io/docs/apidocs/io/vertx/core/Vertx.html)
@@ -21,7 +19,7 @@
 - [Class Launcher](https://vertx.io/docs/apidocs/io/vertx/core/Launcher.html)
 - [Class VertxOptions](http://vertx.io/docs/apidocs/io/vertx/core/VertxOptions.html)
 
-**[Package io.vertx.core.buffer](https://vertx.io/docs/apidocs/io/vertx/core/buffer/package-summary.html)**
+### [`io.vertx.core.buffer`](https://vertx.io/docs/apidocs/io/vertx/core/buffer/package-summary.html)
 
 - [Interface Buffer](https://vertx.io/docs/apidocs/io/vertx/core/buffer/Buffer.html)
 
@@ -37,11 +35,13 @@
 - [Interface AsyncFile](http://vertx.io/docs/apidocs/io/vertx/core/file/AsyncFile.html)
 - [Interface FileSystem](http://vertx.io/docs/apidocs/io/vertx/core/file/FileSystem.html)
 
-### `io.vertx.core.http` [>>](http://vertx.io/docs/apidocs/io/vertx/core/http/package-summary.html)
+### [`io.vertx.core.http`](http://vertx.io/docs/apidocs/io/vertx/core/http/package-summary.html)
 
 - [Interface HttpConnection](http://vertx.io/docs/apidocs/io/vertx/core/http/HttpConnection.html)
 - [Interface HttpServer](http://vertx.io/docs/apidocs/io/vertx/core/http/HttpServer.html)
 - [Interface HttpServerFileUpload](http://vertx.io/docs/apidocs/io/vertx/core/http/HttpServerFileUpload.html)
+- [Interface HttpServerRequest](http://vertx.io/docs/apidocs/io/vertx/core/http/HttpServerRequest.html)
+- [Interface HttpServerResponse](http://vertx.io/docs/apidocs/io/vertx/core/http/HttpServerResponse.html)
 - [Class HttpHeaders](http://vertx.io/docs/apidocs/io/vertx/core/http/HttpHeaders.html)
 - [Enum HttpMethod](https://vertx.io/docs/apidocs/io/vertx/core/http/HttpMethod.html)
 
@@ -63,14 +63,14 @@
 
 ## `io.vertx.ext.sql.*`
 
-**[Package io.vertx.ext.sql](https://vertx.io/docs/apidocs/io/vertx/ext/sql/package-summary.html)**
+### [`io.vertx.ext.sql`](https://vertx.io/docs/apidocs/io/vertx/ext/sql/package-summary.html)
 
 - [Interface SQLConnection](https://vertx.io/docs/apidocs/io/vertx/ext/sql/SQLConnection.html)
 - [Class ResultSet](https://vertx.io/docs/apidocs/io/vertx/ext/sql/ResultSet.html)
 
 ## `io.vertx.ext.web.*`
 
-### `io.vertx.ext.web` [>>](https://vertx.io/docs/apidocs/io/vertx/ext/web/package-summary.html)
+### [`io.vertx.ext.web`](https://vertx.io/docs/apidocs/io/vertx/ext/web/package-summary.html)
 
 - [Interface Cookie](https://vertx.io/docs/apidocs/io/vertx/ext/web/Cookie.html)
 - [Interface FileUpload](https://vertx.io/docs/apidocs/io/vertx/ext/web/FileUpload.html)
@@ -79,7 +79,7 @@
 - [Interface RoutingContext](https://vertx.io/docs/apidocs/io/vertx/ext/web/RoutingContext.html)
 - [Interface Session](https://vertx.io/docs/apidocs/io/vertx/ext/web/Session.html)
 
-### `io.vertx.ext.web.handler` [>>](https://vertx.io/docs/apidocs/io/vertx/ext/web/handler/package-summary.html)
+### [`io.vertx.ext.web.handler`](https://vertx.io/docs/apidocs/io/vertx/ext/web/handler/package-summary.html)
 
 - [Interface BodyHandler](https://vertx.io/docs/apidocs/io/vertx/ext/web/handler/BodyHandler.html)
 - [Interface CookieHandler](https://vertx.io/docs/apidocs/io/vertx/ext/web/handler/CookieHandler.html)

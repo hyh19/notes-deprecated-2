@@ -24,6 +24,8 @@ Maven 依赖 [`pom.xml`](https://github.com/vert-x3/vertx-examples/blob/master/c
 
 ## [Embedding](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#embedding)
 
+- **API**
+
 [Interface Vertx](http://vertx.io/docs/apidocs/io/vertx/core/Vertx.html) \
 [Interface HttpServer](http://vertx.io/docs/apidocs/io/vertx/core/http/HttpServer.html) \
 [Interface Handler<E>](http://vertx.io/docs/apidocs/io/vertx/core/Handler.html) \
@@ -32,23 +34,9 @@ Maven 依赖 [`pom.xml`](https://github.com/vert-x3/vertx-examples/blob/master/c
 [Interface ReadStream<T>](http://vertx.io/docs/apidocs/io/vertx/core/streams/ReadStream.html) \
 [Interface WriteStream<T>](http://vertx.io/docs/apidocs/io/vertx/core/streams/WriteStream.html)
 
-[`EmbeddedServer.java`](https://github.com/vert-x3/vertx-examples/blob/master/core-examples/src/main/java/io/vertx/example/core/embed/EmbeddedServer.java)
-```java
-package io.vertx.example.core.embed;
+- **Code**
 
-import io.vertx.core.Vertx;
-
-/*
- * @author <a href="http://tfox.org">Tim Fox</a>
- */
-public class EmbeddedServer {
-
-  public static void main(String[] args) {
-    // Create an HTTP server which simply returns "Hello World!" to each request.
-    Vertx.vertx().createHttpServer().requestHandler(req -> req.response().end("Hello World!")).listen(8080);
-  }
-}
-```
+https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/embed
 
 ## HTTP examples [>>](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#http-examples)
 
