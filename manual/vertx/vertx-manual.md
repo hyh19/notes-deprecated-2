@@ -2,6 +2,8 @@
 
 <http://vertx.io/>
 
+[TOC]
+
 ## [Installation](https://vertx.io/download/)
 
 ### Maven

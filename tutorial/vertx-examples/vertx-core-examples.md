@@ -24,19 +24,21 @@ Maven 依赖 [`pom.xml`](https://github.com/vert-x3/vertx-examples/blob/master/c
 
 ## [Embedding](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#embedding)
 
-- **API**
+Java API
 
-[Interface Vertx](http://vertx.io/docs/apidocs/io/vertx/core/Vertx.html) \
-[Interface HttpServer](http://vertx.io/docs/apidocs/io/vertx/core/http/HttpServer.html) \
-[Interface Handler<E>](http://vertx.io/docs/apidocs/io/vertx/core/Handler.html) \
-[Interface HttpServerRequest](http://vertx.io/docs/apidocs/io/vertx/core/http/HttpServerRequest.html) \
-[Interface HttpServerResponse](http://vertx.io/docs/apidocs/io/vertx/core/http/HttpServerResponse.html) \
-[Interface ReadStream<T>](http://vertx.io/docs/apidocs/io/vertx/core/streams/ReadStream.html) \
-[Interface WriteStream<T>](http://vertx.io/docs/apidocs/io/vertx/core/streams/WriteStream.html)
+- [Interface Vertx](http://vertx.io/docs/apidocs/io/vertx/core/Vertx.html)
+- [Interface HttpServer](http://vertx.io/docs/apidocs/io/vertx/core/http/HttpServer.html)
+- [Interface Handler<E>](http://vertx.io/docs/apidocs/io/vertx/core/Handler.html)
+- [Interface HttpServerRequest](http://vertx.io/docs/apidocs/io/vertx/core/http/HttpServerRequest.html)
+- [Interface HttpServerResponse](http://vertx.io/docs/apidocs/io/vertx/core/http/HttpServerResponse.html)
+- [Interface ReadStream<T>](http://vertx.io/docs/apidocs/io/vertx/core/streams/ReadStream.html)
+- [Interface WriteStream<T>](http://vertx.io/docs/apidocs/io/vertx/core/streams/WriteStream.html)
 
-- **Code**
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/embed)
 
-https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/embed
+```java
+Vertx.vertx().createHttpServer().requestHandler(req -> req.response().end("Hello World!")).listen(8080);
+```
 
 ## HTTP examples [>>](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#http-examples)
 
