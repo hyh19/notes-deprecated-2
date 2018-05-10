@@ -1,4 +1,4 @@
-# [Vert.x-Web examples](https://github.com/vert-x3/vertx-examples/tree/master/web-examples)
+# [Vert.x Web Examples](https://github.com/vert-x3/vertx-examples/tree/master/web-examples)
 
 @(Vert.x)[vertx,example]
 
@@ -50,7 +50,6 @@ Java API
 [Java Code](https://github.com/vert-x3/vertx-examples/tree/master/web-examples/src/main/java/io/vertx/example/web/rest)
 
 ```java
-// 传入一个请求体处理器
 router.route().handler(BodyHandler.create());
 
 // 添加多个路由
@@ -61,7 +60,7 @@ router.get("/products").handler(this::handleListProducts);
 // 读取路径变量的值
 String productID = routingContext.request().getParam("productID");
 
-// 读取请求体的数据
+// 读取请求数据
 JsonObject product = routingContext.getBodyAsJson();
 ```
 
@@ -72,13 +71,25 @@ Java API
 - [encodePrettily](https://vertx.io/docs/apidocs/io/vertx/core/json/JsonObject.html#encodePrettily--)
 - [getBodyAsJson](https://vertx.io/docs/apidocs/io/vertx/ext/web/RoutingContext.html#getBodyAsJson--)
 
-复习到这
+## [Sessions example](https://github.com/vert-x3/vertx-examples/tree/master/web-examples#sessions-example)
 
-## Sessions example [>>](https://github.com/vert-x3/vertx-examples/tree/master/web-examples#sessions-example)
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/web-examples/src/main/java/io/vertx/example/web/sessions)
 
-[Source Code](https://github.com/vert-x3/vertx-examples/tree/master/web-examples/src/main/java/io/vertx/example/web/sessions)
+```java
+router.route().handler(CookieHandler.create());
+router.route().handler(SessionHandler.create(LocalSessionStore.create(vertx)));
 
-**API**
+router.route().handler(routingContext -> {
+
+  Session session = routingContext.session();
+  // 读取
+  Integer cnt = session.get("hitcount");
+  // 更新
+  session.put("hitcount", cnt);
+});
+```
+
+Java API
 
 - [Interface Session](https://vertx.io/docs/apidocs/io/vertx/ext/web/Session.html)
 - [Interface CookieHandler](https://vertx.io/docs/apidocs/io/vertx/ext/web/handler/CookieHandler.html)
@@ -86,52 +97,147 @@ Java API
 - [Interface LocalSessionStore](https://vertx.io/docs/apidocs/io/vertx/ext/web/sstore/LocalSessionStore.html)
 - [Interface SessionStore](https://vertx.io/docs/apidocs/io/vertx/ext/web/sstore/SessionStore.html)
 
-## Cookie example [>>](https://github.com/vert-x3/vertx-examples/tree/master/web-examples#cookie-example)
+## [Cookie example](https://github.com/vert-x3/vertx-examples/tree/master/web-examples#cookie-example)
 
-[Source Code](https://github.com/vert-x3/vertx-examples/tree/master/web-examples/src/main/java/io/vertx/example/web/cookie)
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/web-examples/src/main/java/io/vertx/example/web/cookie)
 
-**API**
+```java
+router.route().handler(CookieHandler.create());
+
+router.route().handler(ctx -> {
+  // 获取客户端的 Cookie
+  Cookie someCookie = ctx.getCookie("visits");
+
+  long visits = 0;
+  if (someCookie != null) {
+    // 读取 Cookie 的值
+    String cookieValue = someCookie.getValue();
+    try {
+      visits = Long.parseLong(cookieValue);
+    } catch (NumberFormatException e) {
+      visits = 0l;
+    }
+  }
+
+  // 更新 Cookie 的值
+  visits++;
+
+  // 返回 Cookie 给客户端
+  ctx.addCookie(Cookie.cookie("visits", "" + visits));
+});
+```
+
+Java API
 
 - [Interface CookieHandler](https://vertx.io/docs/apidocs/io/vertx/ext/web/handler/CookieHandler.html)
 - [Interface StaticHandler](https://vertx.io/docs/apidocs/io/vertx/ext/web/handler/StaticHandler.html)
 
-## Upload example [>>](https://github.com/vert-x3/vertx-examples/tree/master/web-examples#upload-example)
+## [Upload example](https://github.com/vert-x3/vertx-examples/tree/master/web-examples#upload-example)
 
-[Source Code](https://github.com/vert-x3/vertx-examples/tree/master/web-examples/src/main/java/io/vertx/example/web/upload)
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/web-examples/src/main/java/io/vertx/example/web/upload)
 
-**API**
+```java
+router.route().handler(BodyHandler.create().setUploadsDirectory("uploads"));
+
+router.post("/form").handler(ctx -> {
+
+  ctx.response().putHeader("Content-Type", "text/plain");
+  ctx.response().setChunked(true);
+
+  // 读取文件信息
+  for (FileUpload f : ctx.fileUploads()) {
+    System.out.println("f");
+    ctx.response().write("Filename: " + f.fileName());
+    ctx.response().write("\n");
+    ctx.response().write("Size: " + f.size());
+  }
+
+  ctx.response().end();
+});
+```
+
+Java API
 
 - [Interface FileUpload](https://vertx.io/docs/apidocs/io/vertx/ext/web/FileUpload.html)
 - [setUploadsDirectory](https://vertx.io/docs/apidocs/io/vertx/ext/web/handler/BodyHandler.html#setUploadsDirectory-java.lang.String-)
 
-## HTML Form example [>>](https://github.com/vert-x3/vertx-examples/tree/master/web-examples#html-form-example)
+## [HTML Form example](https://github.com/vert-x3/vertx-examples/tree/master/web-examples#html-form-example)
 
-[Source Code](https://github.com/vert-x3/vertx-examples/tree/master/web-examples/src/main/java/io/vertx/example/web/form)
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/web-examples/src/main/java/io/vertx/example/web/form)
 
-**API**
+```java
+router.route().handler(BodyHandler.create());
+
+router.post("/form").handler(ctx -> {
+  ctx.response().putHeader(HttpHeaders.CONTENT_TYPE, "text/plain");
+  ctx.response().end("Hello " + ctx.request().getParam("name") + "!");
+});
+```
+
+Java API
 
 - [Class HttpHeaders](http://vertx.io/docs/apidocs/io/vertx/core/http/HttpHeaders.html)
 
-## Blocking handler example [>>](https://github.com/vert-x3/vertx-examples/tree/master/web-examples#blocking-handler-example)
+## [Blocking handler example](https://github.com/vert-x3/vertx-examples/tree/master/web-examples#blocking-handler-example)
 
-[Source Code](https://github.com/vert-x3/vertx-examples/tree/master/web-examples/src/main/java/io/vertx/example/web/blockinghandler)
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/web-examples/src/main/java/io/vertx/example/web/blockinghandler)
 
-**API**
+```java
+router.route().blockingHandler(routingContext -> {
+  try {
+    Thread.sleep(5000);
+  } catch (Exception ignore) {
+  }
+
+  routingContext.next();
+}, false);
+
+router.route().handler(routingContext -> {
+  routingContext.response().putHeader("content-type", "text/html").end("Hello World!");
+});
+```
+
+Java API
 
 - [blockingHandler](https://vertx.io/docs/apidocs/io/vertx/ext/web/Route.html#blockingHandler-io.vertx.core.Handler-boolean-)
 
-## Static web server example [>>](https://github.com/vert-x3/vertx-examples/tree/master/web-examples#static-web-server-example)
+## [Static web server example](https://github.com/vert-x3/vertx-examples/tree/master/web-examples#static-web-server-example)
 
-[Source Code](https://github.com/vert-x3/vertx-examples/tree/master/web-examples/src/main/java/io/vertx/example/web/staticsite)
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/web-examples/src/main/java/io/vertx/example/web/staticsite)
 
-## JDBC example [>>](https://github.com/vert-x3/vertx-examples/tree/master/web-examples#jdbc-example)
+```java
+router.route().handler(StaticHandler.create());
+```
 
-[Source Code](https://github.com/vert-x3/vertx-examples/tree/master/web-examples/src/main/java/io/vertx/example/web/jdbc)
+## [JDBC example](https://github.com/vert-x3/vertx-examples/tree/master/web-examples#jdbc-example)
 
-**API**
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/web-examples/src/main/java/io/vertx/example/web/jdbc)
+
+```java
+router.route("/products*").handler(routingContext -> client.getConnection(res -> {
+  if (res.failed()) {
+    routingContext.fail(res.cause());
+  } else {
+    SQLConnection conn = res.result();
+
+    // 保存数据库连接
+    routingContext.put("conn", conn);
+
+    // 关闭数据库连接
+    routingContext.addHeadersEndHandler(done -> conn.close(v -> { }));
+
+    routingContext.next();
+  }
+})).failureHandler(routingContext -> {
+  SQLConnection conn = routingContext.get("conn");
+  if (conn != null) {
+    conn.close(v -> {
+    });
+  }
+});
+```
+
+Java API
 
 - [addHeadersEndHandler](https://vertx.io/docs/apidocs/io/vertx/ext/web/RoutingContext.html#addHeadersEndHandler-io.vertx.core.Handler-)
 - [next](https://vertx.io/docs/apidocs/io/vertx/ext/web/RoutingContext.html#next--)
-
-
-
