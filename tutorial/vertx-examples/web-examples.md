@@ -1,6 +1,10 @@
-[toc]
+# [Vert.x-Web examples](https://github.com/vert-x3/vertx-examples/tree/master/web-examples)
 
-# Vert.x-Web examples [>>](https://github.com/vert-x3/vertx-examples/tree/master/web-examples)
+@(Vert.x)[vertx,example]
+
+---
+
+[TOC]
 
 ## [Logging](https://github.com/vert-x3/vertx-examples/tree/master/web-examples#logging)
 
