@@ -1,32 +1,14 @@
 # Vert.x Manual
 
+@(Vert.x)[vertx,manual]
+
 <http://vertx.io/>
+
+---
 
 [TOC]
 
 ## [Installation](https://vertx.io/download/)
-
-### Maven
-
-`pom.xml`
-
-```xml
-<dependency>
-  <groupId>io.vertx</groupId>
-  <artifactId>vertx-core</artifactId>
-  <version>3.5.1</version>
-</dependency>
-```
-
-### Gradle
-
-`build.gradle`
-
-```gradle
-dependencies {
-  compile 'io.vertx:vertx-core:3.5.1'
-}
-```
 
 ### NPM
 
@@ -59,13 +41,57 @@ vertx run echo_server.js
 
 ## [Core](https://vertx.io/docs/#core)
 
+```xml
+<dependency>
+  <groupId>io.vertx</groupId>
+  <artifactId>vertx-core</artifactId>
+  <version>3.5.1</version>
+</dependency>
+```
+
+```gradle
+dependencies {
+  compile 'io.vertx:vertx-core:3.5.1'
+}
+```
+
+[Java Manual](https://vertx.io/docs/vertx-core/java/) [API](https://vertx.io/docs/apidocs/)
+
 [Examples](https://github.com/vert-x3/vertx-examples/tree/master/core-examples)
 
-Java [Manual](https://vertx.io/docs/vertx-core/java/) [API](https://vertx.io/docs/apidocs/)
+## [Web](https://vertx.io/docs/#web)
 
-## Web
+### Web
 
-<https://vertx.io/docs/#web>
+```xml
+<dependency>
+  <groupId>io.vertx</groupId>
+  <artifactId>vertx-web</artifactId>
+  <version>3.5.1</version>
+</dependency>
+```
+
+```gradle
+dependencies {
+  compile 'io.vertx:vertx-web:3.5.1'
+}
+```
+
+[Java Manual](https://vertx.io/docs/vertx-web/java/)
+
+[Examples](https://github.com/vert-x3/vertx-examples/tree/master/web-examples)
+
+## [Data access](https://vertx.io/docs/#data_access)
+
+### JDBC client
+
+[Java Manual](https://vertx.io/docs/vertx-jdbc-client/java/)
+
+[Examples](https://github.com/vert-x3/vertx-examples/tree/master/jdbc-examples)
+
+### SQL common
+
+[Java Manual](https://vertx.io/docs/vertx-sql-common/java/)
 
 ## Services [>>](https://vertx.io/docs/#services)
 

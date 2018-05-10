@@ -1,34 +1,78 @@
-[toc]
+# [Vert.x-Web examples](https://github.com/vert-x3/vertx-examples/tree/master/web-examples)
 
-# Vert.x-Web examples [>>](https://github.com/vert-x3/vertx-examples/tree/master/web-examples)
+@(Vert.x)[vertx,example]
 
-## Logging [>>](https://github.com/vert-x3/vertx-examples/tree/master/web-examples#logging)
+---
 
-跳过
+[TOC]
 
-## Dependencies required [>>](https://github.com/vert-x3/vertx-examples/tree/master/web-examples#dependencies-required)
+## [Logging](https://github.com/vert-x3/vertx-examples/tree/master/web-examples#logging)
 
-跳过
+配置文件 `src/main/resources/vertx-default-jul-logging.properties`
 
-## Hello World [>>](https://github.com/vert-x3/vertx-examples/tree/master/web-examples#hello-world)
+## [Dependencies required](https://github.com/vert-x3/vertx-examples/tree/master/web-examples#dependencies-required)
 
-[Source Code](https://github.com/vert-x3/vertx-examples/tree/master/web-examples/src/main/java/io/vertx/example/web/helloworld)
+Maven 依赖 [`pom.xml`](https://github.com/vert-x3/vertx-examples/blob/master/web-examples/pom.xml)
 
-**API**
+```xml
+<dependency>
+  <groupId>io.vertx</groupId>
+  <artifactId>vertx-web</artifactId>
+  <version>3.5.1</version>
+</dependency>
+```
+
+## [Hello World](https://github.com/vert-x3/vertx-examples/tree/master/web-examples#hello-world)
+
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/web-examples/src/main/java/io/vertx/example/web/helloworld)
+
+```java
+// 创建路由器
+Router router = Router.router(vertx);
+
+// 添加路由
+router.route().handler(routingContext -> {
+  routingContext.response().putHeader("content-type", "text/html").end("Hello World!");
+});
+
+// 指定某个路由器来处理网络请求
+vertx.createHttpServer().requestHandler(router::accept).listen(8080);
+```
+
+Java API
+
 - [Interface Route](https://vertx.io/docs/apidocs/io/vertx/ext/web/Route.html)
 - [Interface Router](https://vertx.io/docs/apidocs/io/vertx/ext/web/Router.html)
 - [Interface RoutingContext](https://vertx.io/docs/apidocs/io/vertx/ext/web/RoutingContext.html)
 
 ## Simple REST Micro-service [>>](https://github.com/vert-x3/vertx-examples/tree/master/web-examples#simple-rest-micro-service)
 
-[Source Code](https://github.com/vert-x3/vertx-examples/tree/master/web-examples/src/main/java/io/vertx/example/web/rest)
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/web-examples/src/main/java/io/vertx/example/web/rest)
 
-**API**
+```java
+// 传入一个请求体处理器
+router.route().handler(BodyHandler.create());
+
+// 添加多个路由
+router.get("/products/:productID").handler(this::handleGetProduct);
+router.put("/products/:productID").handler(this::handleAddProduct);
+router.get("/products").handler(this::handleListProducts);
+
+// 读取路径变量的值
+String productID = routingContext.request().getParam("productID");
+
+// 读取请求体的数据
+JsonObject product = routingContext.getBodyAsJson();
+```
+
+Java API
 
 - [Interface BodyHandler](https://vertx.io/docs/apidocs/io/vertx/ext/web/handler/BodyHandler.html)
 - [Class JsonArray](https://vertx.io/docs/apidocs/io/vertx/core/json/JsonArray.html)
 - [encodePrettily](https://vertx.io/docs/apidocs/io/vertx/core/json/JsonObject.html#encodePrettily--)
 - [getBodyAsJson](https://vertx.io/docs/apidocs/io/vertx/ext/web/RoutingContext.html#getBodyAsJson--)
+
+复习到这
 
 ## Sessions example [>>](https://github.com/vert-x3/vertx-examples/tree/master/web-examples#sessions-example)
 
