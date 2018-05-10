@@ -1,6 +1,10 @@
 # Vert.x Manual
 
+@(Vert.x)[vertx,manual]
+
 <http://vertx.io/>
+
+---
 
 [TOC]
 
