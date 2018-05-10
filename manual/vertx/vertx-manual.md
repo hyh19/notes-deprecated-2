@@ -67,6 +67,18 @@ Java [Manual](https://vertx.io/docs/vertx-core/java/) [API](https://vertx.io/doc
 
 <https://vertx.io/docs/#web>
 
+## [Data access](https://vertx.io/docs/#data_access)
+
+### JDBC client
+
+[Java Manual](https://vertx.io/docs/vertx-jdbc-client/java/)
+
+[Examples](https://github.com/vert-x3/vertx-examples/tree/master/jdbc-examples)
+
+### SQL common
+
+[Java Manual](https://vertx.io/docs/vertx-sql-common/java/)
+
 ## Services [>>](https://vertx.io/docs/#services)
 
 [Manual](https://vertx.io/docs/vertx-service-proxy/java) \
