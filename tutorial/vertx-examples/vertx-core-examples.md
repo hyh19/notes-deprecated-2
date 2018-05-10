@@ -1,5 +1,7 @@
 # [Vert.x core examples](https://github.com/vert-x3/vertx-examples/tree/master/core-examples)
 
+@(Vert.x)[vertx,example]
+
 运行示例代码的两种方式
 
 - 在 IDE 上执行 `main` 方法
@@ -28,15 +30,11 @@ Maven 依赖 [`pom.xml`](https://github.com/vert-x3/vertx-examples/blob/master/c
 
 ## [Embedding](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#embedding)
 
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/embed)
+
 ```java
-package io.vertx.example.core.embed;
-
-import io.vertx.core.Vertx;
-
-public class EmbeddedServer {
-    public static void main(String[] args) {
-        Vertx.vertx().createHttpServer().requestHandler(req -> req.response().end("Hello World!")).listen(8080);
-    }
+public static void main(String[] args) {
+  Vertx.vertx().createHttpServer().requestHandler(req -> req.response().end("Hello World!")).listen(8080);
 }
 ```
 
@@ -50,12 +48,6 @@ Java API
 - [Interface ReadStream<T>](http://vertx.io/docs/apidocs/io/vertx/core/streams/ReadStream.html)
 - [Interface WriteStream<T>](http://vertx.io/docs/apidocs/io/vertx/core/streams/WriteStream.html)
 
-[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/embed)
-
-```java
-Vertx.vertx().createHttpServer().requestHandler(req -> req.response().end("Hello World!")).listen(8080);
-```
-
 ## Net examples
 
 跳过
@@ -63,6 +55,8 @@ Vertx.vertx().createHttpServer().requestHandler(req -> req.response().end("Hello
 ## [HTTP examples](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#http-examples)
 
 ### [Simple](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#simple)
+
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/http/simple)
 
 ```java
 package io.vertx.example.core.http.simple;
@@ -85,16 +79,14 @@ public class Server extends AbstractVerticle {
 }
 ```
 
+[Kotlin Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/kotlin/io/vertx/example/core/http/simple)
+
 Java API
 
 - [Class AbstractVerticle](https://vertx.io/docs/apidocs/io/vertx/core/AbstractVerticle.html)
 - [Interface Verticle](https://vertx.io/docs/apidocs/io/vertx/core/Verticle.html)
 - [Interface Future<T>](https://vertx.io/docs/apidocs/io/vertx/core/Future.html)
 - [Interface AsyncResult<T>](http://vertx.io/docs/apidocs/io/vertx/core/AsyncResult.html)
-
-[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/http/simple)
-
-[Kotlin Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/kotlin/io/vertx/example/core/http/simple)
 
 ### HTTPS
 
@@ -112,9 +104,51 @@ Java API
 
 [Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/http/sendfile)
 
+```java
+vertx.createHttpServer().requestHandler(req -> {
+  String filename = null;
+  if (req.path().equals("/")) {
+    filename = "index.html";
+  } else if (req.path().equals("/page1.html")) {
+    filename = "page1.html";
+  } else if (req.path().equals("/page2.html")) {
+    filename = "page2.html";
+  } else {
+    req.response().setStatusCode(404).end();
+  }
+  if (filename != null) {
+    req.response().sendFile(filename);
+  }
+}).listen(8080);
+```
+
 [Kotlin Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/kotlin/io/vertx/example/core/http/sendfile)
 
 ### [Simple form](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#simple-form)
+
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/http/simpleform)
+
+```java
+vertx.createHttpServer().requestHandler(req -> {
+  if (req.uri().equals("/")) {
+    req.response().sendFile("index.html");
+  } else if (req.uri().startsWith("/form")) {
+    req.response().setChunked(true);
+    req.setExpectMultipart(true);
+    req.endHandler((v) -> {
+      //读取表单数据
+      for (String attr : req.formAttributes().names()) {
+        req.response().write("Got attr " + attr + " : " + req.formAttributes().get(attr) + "\n");
+      }
+      req.response().end();
+    });
+  } else {
+    req.response().setStatusCode(404).end();
+  }
+}).listen(8080);
+```
+
+[Kotlin Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/kotlin/io/vertx/example/core/http/simpleform)
 
 Java API
 
@@ -124,11 +158,35 @@ Java API
 - [endHandler](https://vertx.io/docs/apidocs/io/vertx/core/http/HttpServerRequest.html#endHandler-io.vertx.core.Handler-)
 - [formAttributes](https://vertx.io/docs/apidocs/io/vertx/core/http/HttpServerRequest.html#formAttributes--)
 
-[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/http/simpleform)
-
-[Kotlin Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/kotlin/io/vertx/example/core/http/simpleform)
-
 ### [Simple form file upload](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#simple-form-file-upload)
+
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/http/simpleformupload)
+
+```java
+vertx.createHttpServer().requestHandler(req -> {
+  if (req.uri().equals("/")) {
+    req.response().sendFile("index.html");
+  } else if (req.uri().startsWith("/form")) {
+    req.setExpectMultipart(true);
+    req.uploadHandler(upload -> {
+      upload.exceptionHandler(cause -> {
+        req.response().setChunked(true).end("Upload failed");
+      });
+
+      upload.endHandler(v -> {
+        req.response().setChunked(true).end("Successfully uploaded to " + upload.filename());
+      });
+      // 保存文件
+      upload.streamToFileSystem(upload.filename());
+    });
+  } else {
+    req.response().setStatusCode(404);
+    req.response().end();
+  }
+}).listen(8080);
+```
+
+[Kotlin Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/kotlin/io/vertx/example/core/http/simpleformupload)
 
 Java API
 
@@ -138,11 +196,30 @@ Java API
 - [endHandler](https://vertx.io/docs/apidocs/io/vertx/core/http/HttpServerFileUpload.html#endHandler-io.vertx.core.Handler-)
 - [streamToFileSystem](https://vertx.io/docs/apidocs/io/vertx/core/http/HttpServerFileUpload.html#streamToFileSystem-java.lang.String-)
 
-[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/http/simpleformupload)
-
-[Kotlin Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/kotlin/io/vertx/example/core/http/simpleformupload)
-
 ### [Http request body upload](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#http-request-body-upload)
+
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/http/upload)
+
+```java
+vertx.createHttpServer().requestHandler(req -> {
+  req.pause();
+  String filename = UUID.randomUUID() + ".uploaded";
+  vertx.fileSystem().open(filename, new OpenOptions(), ares -> {
+    AsyncFile file = ares.result();
+    // 连接请求数据和文件
+    Pump pump = Pump.pump(req, file);
+    req.endHandler(v1 -> file.close(v2 -> {
+      System.out.println("Uploaded to " + filename);
+      req.response().end();
+    }));
+    // 开始把数据写到文件
+    pump.start();
+    req.resume();
+  });
+}).listen(8080);
+```
+
+Kotlin Code 跳过
 
 Java API
 
@@ -151,25 +228,33 @@ Java API
 - [Interface Pump](http://vertx.io/docs/apidocs/io/vertx/core/streams/Pump.html)
 - [open](https://vertx.io/docs/apidocs/io/vertx/core/file/FileSystem.html#open-java.lang.String-io.vertx.core.file.OpenOptions-io.vertx.core.Handler-)
 
-[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/http/upload)
-
-Kotlin Code 跳过
-
 > network io 网络读写
 
 ## [Event bus examples](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#event-bus-examples)
 
 ### [Point to point](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#point-to-point)
 
-Java API
-
-- [Interface EventBus](https://vertx.io/docs/apidocs/io/vertx/core/eventbus/EventBus.html)
-- [Interface Message<T>](https://vertx.io/docs/apidocs/io/vertx/core/eventbus/Message.html)
-- [Interface MessageConsumer<T>](https://vertx.io/docs/apidocs/io/vertx/core/eventbus/MessageConsumer.html)
-- [send](https://vertx.io/docs/apidocs/io/vertx/core/eventbus/EventBus.html#send-java.lang.String-java.lang.Object-io.vertx.core.Handler-)
-- [consumer](https://vertx.io/docs/apidocs/io/vertx/core/eventbus/EventBus.html#consumer-java.lang.String-io.vertx.core.Handler-)
-
 [Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/eventbus/pointtopoint)
+
+```java
+// 发送消息
+EventBus eb = vertx.eventBus();
+eb.send("ping-address", "ping!", reply -> {
+  if (reply.succeeded()) {
+    // 有回复
+  } else {
+    // 无回复
+  }
+});
+
+// 接收消息
+EventBus eb = vertx.eventBus();
+eb.consumer("ping-address", message -> {
+  System.out.println("Received message: " + message.body());
+  // 回复
+  message.reply("pong!");
+});
+```
 
 [Kotlin Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/kotlin/io/vertx/example/core/eventbus/pointtopoint)
 
@@ -180,76 +265,139 @@ vertx run Receiver.kt -cluster
 vertx run Sender.kt -cluster
 ```
 
+Java API
+
+- [Interface EventBus](https://vertx.io/docs/apidocs/io/vertx/core/eventbus/EventBus.html)
+- [Interface Message<T>](https://vertx.io/docs/apidocs/io/vertx/core/eventbus/Message.html)
+- [Interface MessageConsumer<T>](https://vertx.io/docs/apidocs/io/vertx/core/eventbus/MessageConsumer.html)
+- [send](https://vertx.io/docs/apidocs/io/vertx/core/eventbus/EventBus.html#send-java.lang.String-java.lang.Object-io.vertx.core.Handler-)
+- [consumer](https://vertx.io/docs/apidocs/io/vertx/core/eventbus/EventBus.html#consumer-java.lang.String-io.vertx.core.Handler-)
+
 ### [Publish / Subscribe](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#publish--subscribe)
+
+[Java Code](https://github.com/vert-x3/vertx-examples/blob/master/core-examples/src/main/java/io/vertx/example/core/eventbus/pubsub)
+
+```java
+// 发布消息
+EventBus eb = vertx.eventBus();
+vertx.setPeriodic(1000, v -> eb.publish("news-feed", "Some news!"));
+
+// 订阅消息
+EventBus eb = vertx.eventBus();
+eb.consumer("news-feed", message -> System.out.println("Received news on consumer 1: " + message.body()));
+eb.consumer("news-feed", message -> System.out.println("Received news on consumer 2: " + message.body()));
+eb.consumer("news-feed", message -> System.out.println("Received news on consumer 3: " + message.body()));
+```
+
+[Kotlin Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/kotlin/io/vertx/example/core/eventbus/pubsub)
 
 Java API
 
 - [publish](https://vertx.io/docs/apidocs/io/vertx/core/eventbus/EventBus.html#publish-java.lang.String-java.lang.Object-)
 
-[Java Code](https://github.com/vert-x3/vertx-examples/blob/master/core-examples/src/main/java/io/vertx/example/core/eventbus/pubsub)
-
-[Kotlin Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/kotlin/io/vertx/example/core/eventbus/pubsub)
-
 ### [MessageCodec](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#messagecodec)
+
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/eventbus/messagecodec)
+
+```java
+// 自定义编解码器
+public class CustomMessageCodec implements MessageCodec<CustomMessage, CustomMessage> {
+  @Override
+  public void encodeToWire(Buffer buffer, CustomMessage customMessage) {
+    // 编码逻辑
+  }
+
+  @Override
+  public CustomMessage decodeFromWire(int position, Buffer buffer) {
+    // 解码逻辑
+  }
+}
+```
+
+```java
+// 注册编解码器（注意：发送者和接收者都要注册）
+eventBus.registerDefaultCodec(CustomMessage.class, new CustomMessageCodec());
+```
 
 Java API
 
 - [Interface MessageCodec<S,R>](https://vertx.io/docs/apidocs/io/vertx/core/eventbus/MessageCodec.html)
 
-[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/eventbus/messagecodec)
-
 ## [Future](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#future)
-
-Java API
-
-- [compose](https://vertx.io/docs/apidocs/io/vertx/core/Future.html#compose-java.util.function.Function-)
 
 [Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/future)
 
-## [Verticle examples](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#verticle-examples)
-
-### [Deploy example](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#deploy-example)
-
 ```java
-public class DeployExample extends AbstractVerticle {
-
-  @Override
-  public void start() throws Exception {
-
-    // 无部署结果的回调
-    vertx.deployVerticle("io.vertx.example.core.verticle.deploy.OtherVerticle");
-
-    // 有部署结果的回调
-    vertx.deployVerticle("io.vertx.example.core.verticle.deploy.OtherVerticle", res -> {
-      if (res.succeeded()) {
-        // 成功
-      } else {
+@Override
+public void start() throws Exception {
+  Future<String> future = anAsyncAction();
+  // 注意：这里传的是方法引用，因为要等到第一个异步操作完成后才开始第二个。
+  future.compose(this::anotherAsyncAction)
+    .setHandler(ar -> {
+      if (ar.failed()) {
         // 失败
+      } else {
+        // 成功
       }
     });
+}
 
-    // 自定义部署配置
-    JsonObject config = new JsonObject().put("foo", "bar");
-    vertx.deployVerticle("io.vertx.example.core.verticle.deploy.OtherVerticle", new DeploymentOptions().setConfig(config));
+private Future<String> anAsyncAction() {
+  Future<String> future = Future.future();
+  vertx.setTimer(100, l -> future.complete("world"));
+  return future;
+}
 
-    // 部署多个实例
-    vertx.deployVerticle("io.vertx.example.core.verticle.deploy.OtherVerticle", new DeploymentOptions().setInstances(10));
-
-    // 以 Worker 的形式部署
-    vertx.deployVerticle("io.vertx.example.core.verticle.deploy.OtherVerticle", new DeploymentOptions().setWorker(true));
-  }
+private Future<String> anotherAsyncAction(String name) {
+  Future<String> future = Future.future();
+  vertx.setTimer(100, l -> future.complete("hello " + name));
+  return future;
 }
 ```
 
 Java API
 
-- [Class DeploymentOptions](https://vertx.io/docs/apidocs/io/vertx/core/DeploymentOptions.html)
+- [compose](https://vertx.io/docs/apidocs/io/vertx/core/Future.html#compose-java.util.function.Function-)
+
+## [Verticle examples](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#verticle-examples)
+
+### [Deploy example](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#deploy-example)
 
 [Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/verticle/deploy)
 
+```java
+// 无部署结果的回调
+vertx.deployVerticle("io.vertx.example.core.verticle.deploy.OtherVerticle");
+
+// 有部署结果的回调
+vertx.deployVerticle("io.vertx.example.core.verticle.deploy.OtherVerticle", res -> {
+  if (res.succeeded()) {
+    // 成功
+  } else {
+    // 失败
+  }
+});
+
+// 自定义部署配置
+JsonObject config = new JsonObject().put("foo", "bar");
+vertx.deployVerticle("io.vertx.example.core.verticle.deploy.OtherVerticle", new DeploymentOptions().setConfig(config));
+
+// 部署多个实例
+vertx.deployVerticle("io.vertx.example.core.verticle.deploy.OtherVerticle", new DeploymentOptions().setInstances(10));
+
+// 以 Worker 的形式部署
+vertx.deployVerticle("io.vertx.example.core.verticle.deploy.OtherVerticle", new DeploymentOptions().setWorker(true));
+```
+
 Kotlin Code 跳过
 
+Java API
+
+- [Class DeploymentOptions](https://vertx.io/docs/apidocs/io/vertx/core/DeploymentOptions.html)
+
 ### [Asynchronous deployment example](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#asynchronous-deployment-example)
+
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/verticle/asyncstart)
 
 ```java
 public class OtherVerticle extends AbstractVerticle {
@@ -271,30 +419,31 @@ public class OtherVerticle extends AbstractVerticle {
 }
 ```
 
+Kotlin Code 跳过
+
 Java API
 
 - [start](https://vertx.io/docs/apidocs/io/vertx/core/AbstractVerticle.html#start-io.vertx.core.Future-)
 - [stop](https://vertx.io/docs/apidocs/io/vertx/core/AbstractVerticle.html#stop-io.vertx.core.Future-)
 
-[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/verticle/asyncstart)
-
-Kotlin Code 跳过
-
 ### [Worker Verticle example](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#worker-verticle-example)
 
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/verticle/worker)
+
 ```java
-vertx.deployVerticle("io.vertx.example.core.verticle.worker.WorkerVerticle", new DeploymentOptions().setWorker(true));
+vertx.deployVerticle("io.vertx.example.core.verticle.worker.WorkerVerticle",
+new DeploymentOptions().setWorker(true));
 ```
 
 Java API
 
 - [setWorker](https://vertx.io/docs/apidocs/io/vertx/core/DeploymentOptions.html#setWorker-boolean-)
 
-[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/verticle/worker)
-
 **TODO** 对 Event Loop 和 Worker Pool 两个线程以后要深入了解
 
 ## [Execute blocking example](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#execute-blocking-example)
+
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/execblocking)
 
 ```java
 vertx.<String>executeBlocking(future -> {
@@ -320,5 +469,3 @@ Java API
 - [setWorkerPoolName](https://vertx.io/docs/apidocs/io/vertx/core/DeploymentOptions.html#setWorkerPoolName-java.lang.String-)
 - [setMaxWorkerExecuteTime](https://vertx.io/docs/apidocs/io/vertx/core/DeploymentOptions.html#setMaxWorkerExecuteTime-long-)
 - [setWorkerPoolSize](https://vertx.io/docs/apidocs/io/vertx/core/DeploymentOptions.html#setWorkerPoolSize-int-)
-
-[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/execblocking)
