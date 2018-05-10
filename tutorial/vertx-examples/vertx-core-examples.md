@@ -155,7 +155,7 @@ Java API
 
 Kotlin Code 跳过
 
-> network io | 网络读写
+> network io 网络读写
 
 ## [Event bus examples](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#event-bus-examples)
 
@@ -206,48 +206,119 @@ Java API
 
 [Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/future)
 
-复习到这 180509
+## [Verticle examples](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#verticle-examples)
 
-## Verticle examples [>>](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#verticle-examples)
+### [Deploy example](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#deploy-example)
 
-### Deploy example [>>](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#deploy-example)
+```java
+public class DeployExample extends AbstractVerticle {
 
-**API**
+  @Override
+  public void start() throws Exception {
+
+    // 无部署结果的回调
+    vertx.deployVerticle("io.vertx.example.core.verticle.deploy.OtherVerticle");
+
+    // 有部署结果的回调
+    vertx.deployVerticle("io.vertx.example.core.verticle.deploy.OtherVerticle", res -> {
+      if (res.succeeded()) {
+        // 成功
+      } else {
+        // 失败
+      }
+    });
+
+    // 自定义部署配置
+    JsonObject config = new JsonObject().put("foo", "bar");
+    vertx.deployVerticle("io.vertx.example.core.verticle.deploy.OtherVerticle", new DeploymentOptions().setConfig(config));
+
+    // 部署多个实例
+    vertx.deployVerticle("io.vertx.example.core.verticle.deploy.OtherVerticle", new DeploymentOptions().setInstances(10));
+
+    // 以 Worker 的形式部署
+    vertx.deployVerticle("io.vertx.example.core.verticle.deploy.OtherVerticle", new DeploymentOptions().setWorker(true));
+  }
+}
+```
+
+Java API
 
 - [Class DeploymentOptions](https://vertx.io/docs/apidocs/io/vertx/core/DeploymentOptions.html)
 
-**Codes**
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/verticle/deploy)
 
-- [Java](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/verticle/deploy)
-- Kotlin 跳过
+Kotlin Code 跳过
 
-### Asynchronous deployment example [>>](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#asynchronous-deployment-example)
+### [Asynchronous deployment example](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#asynchronous-deployment-example)
 
-**API**
+```java
+public class OtherVerticle extends AbstractVerticle {
+
+  @Override
+  public void start(Future<Void> startFuture) throws Exception {
+
+    // 执行耗时代码
+
+    // 执行完成，返回结果。
+    startFuture.complete();
+  }
+
+  @Override
+  public void stop(Future<Void> stopFuture) throws Exception {
+    // 同上
+    stopFuture.complete();
+  }
+}
+```
+
+Java API
 
 - [start](https://vertx.io/docs/apidocs/io/vertx/core/AbstractVerticle.html#start-io.vertx.core.Future-)
+- [stop](https://vertx.io/docs/apidocs/io/vertx/core/AbstractVerticle.html#stop-io.vertx.core.Future-)
 
-**Codes**
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/verticle/asyncstart)
 
-- [Java](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/verticle/asyncstart)
-- Kotlin 跳过
+Kotlin Code 跳过
 
-学习到这
+### [Worker Verticle example](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#worker-verticle-example)
 
-### Worker Verticle example [>>](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#worker-verticle-example)
+```java
+vertx.deployVerticle("io.vertx.example.core.verticle.worker.WorkerVerticle", new DeploymentOptions().setWorker(true));
+```
 
-[setWorker](https://vertx.io/docs/apidocs/io/vertx/core/DeploymentOptions.html#setWorker-boolean-)
+Java API
 
-https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/verticle/worker
+- [setWorker](https://vertx.io/docs/apidocs/io/vertx/core/DeploymentOptions.html#setWorker-boolean-)
 
-对Event Loop和Worker Pool两个线程要深入了解
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/verticle/worker)
 
-## Execute blocking example [>>](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#execute-blocking-example)
+**TODO** 对 Event Loop 和 Worker Pool 两个线程以后要深入了解
 
-[executeBlocking](https://vertx.io/docs/apidocs/io/vertx/core/Vertx.html#executeBlocking-io.vertx.core.Handler-io.vertx.core.Handler-)
+## [Execute blocking example](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#execute-blocking-example)
 
-[setWorkerPoolName](https://vertx.io/docs/apidocs/io/vertx/core/DeploymentOptions.html#setWorkerPoolName-java.lang.String-)
+```java
+vertx.<String>executeBlocking(future -> {
 
-[setMaxWorkerExecuteTime](https://vertx.io/docs/apidocs/io/vertx/core/DeploymentOptions.html#setMaxWorkerExecuteTime-long-)
+  // 执行阻塞代码
 
-[setWorkerPoolSize](https://vertx.io/docs/apidocs/io/vertx/core/DeploymentOptions.html#setWorkerPoolSize-int-)
+  // 执行完成，返回结果。
+  future.complete(result);
+
+}, res -> { // 执行结果的回调
+
+  if (res.succeeded()) {
+    // 成功
+  } else {
+    // 失败
+  }
+});
+```
+
+Java API
+
+- [executeBlocking](https://vertx.io/docs/apidocs/io/vertx/core/Vertx.html#executeBlocking-io.vertx.core.Handler-io.vertx.core.Handler-)
+- [setWorkerPoolName](https://vertx.io/docs/apidocs/io/vertx/core/DeploymentOptions.html#setWorkerPoolName-java.lang.String-)
+- [setMaxWorkerExecuteTime](https://vertx.io/docs/apidocs/io/vertx/core/DeploymentOptions.html#setMaxWorkerExecuteTime-long-)
+- [setWorkerPoolSize](https://vertx.io/docs/apidocs/io/vertx/core/DeploymentOptions.html#setWorkerPoolSize-int-)
+
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/core-examples/src/main/java/io/vertx/example/core/execblocking)
