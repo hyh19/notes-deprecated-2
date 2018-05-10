@@ -50,7 +50,7 @@ Java API
 [Java Code](https://github.com/vert-x3/vertx-examples/tree/master/web-examples/src/main/java/io/vertx/example/web/rest)
 
 ```java
-// 传入一个请求体处理器
+// 后面要读取请求数据时一定要先路由到这样一个处理器
 router.route().handler(BodyHandler.create());
 
 // 添加多个路由
@@ -61,7 +61,7 @@ router.get("/products").handler(this::handleListProducts);
 // 读取路径变量的值
 String productID = routingContext.request().getParam("productID");
 
-// 读取请求体的数据
+// 读取请求数据
 JsonObject product = routingContext.getBodyAsJson();
 ```
 
@@ -72,13 +72,26 @@ Java API
 - [encodePrettily](https://vertx.io/docs/apidocs/io/vertx/core/json/JsonObject.html#encodePrettily--)
 - [getBodyAsJson](https://vertx.io/docs/apidocs/io/vertx/ext/web/RoutingContext.html#getBodyAsJson--)
 
-复习到这
+## [Sessions example](https://github.com/vert-x3/vertx-examples/tree/master/web-examples#sessions-example)
 
-## Sessions example [>>](https://github.com/vert-x3/vertx-examples/tree/master/web-examples#sessions-example)
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/web-examples/src/main/java/io/vertx/example/web/sessions)
 
-[Source Code](https://github.com/vert-x3/vertx-examples/tree/master/web-examples/src/main/java/io/vertx/example/web/sessions)
+```java
+// 一定要先路由到 CookieHandler
+router.route().handler(CookieHandler.create());
+router.route().handler(SessionHandler.create(LocalSessionStore.create(vertx)));
 
-**API**
+router.route().handler(routingContext -> {
+
+  Session session = routingContext.session();
+  // 读取
+  Integer cnt = session.get("hitcount");
+  // 更新
+  session.put("hitcount", cnt);
+});
+```
+
+Java API
 
 - [Interface Session](https://vertx.io/docs/apidocs/io/vertx/ext/web/Session.html)
 - [Interface CookieHandler](https://vertx.io/docs/apidocs/io/vertx/ext/web/handler/CookieHandler.html)
