@@ -1,4 +1,4 @@
-# [Vert.x core examples](https://github.com/vert-x3/vertx-examples/tree/master/core-examples)
+# [Vert.x Core Examples](https://github.com/vert-x3/vertx-examples/tree/master/core-examples)
 
 @(Vert.x)[vertx,example]
 

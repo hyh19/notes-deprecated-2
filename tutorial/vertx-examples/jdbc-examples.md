@@ -1,4 +1,4 @@
-# [Vert.x JDBC Client examples](https://github.com/vert-x3/vertx-examples/tree/master/jdbc-examples)
+# [Vert.x JDBC Client Examples](https://github.com/vert-x3/vertx-examples/tree/master/jdbc-examples)
 
 @(Vert.x)[vertx,jdbc,example]
 
