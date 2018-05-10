@@ -50,7 +50,7 @@ Java API
 [Java Code](https://github.com/vert-x3/vertx-examples/tree/master/web-examples/src/main/java/io/vertx/example/web/rest)
 
 ```java
-// 后面要读取请求数据时一定要先路由到这样一个处理器
+// 要读取请求数据时一定要先路由到 BodyHandler
 router.route().handler(BodyHandler.create());
 
 // 添加多个路由
@@ -99,20 +99,67 @@ Java API
 - [Interface LocalSessionStore](https://vertx.io/docs/apidocs/io/vertx/ext/web/sstore/LocalSessionStore.html)
 - [Interface SessionStore](https://vertx.io/docs/apidocs/io/vertx/ext/web/sstore/SessionStore.html)
 
-## Cookie example [>>](https://github.com/vert-x3/vertx-examples/tree/master/web-examples#cookie-example)
+## [Cookie example](https://github.com/vert-x3/vertx-examples/tree/master/web-examples#cookie-example)
 
-[Source Code](https://github.com/vert-x3/vertx-examples/tree/master/web-examples/src/main/java/io/vertx/example/web/cookie)
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/web-examples/src/main/java/io/vertx/example/web/cookie)
 
-**API**
+```java
+router.route().handler(CookieHandler.create());
+
+router.route().handler(ctx -> {
+  // 获取客户端的 Cookie
+  Cookie someCookie = ctx.getCookie("visits");
+
+  long visits = 0;
+  if (someCookie != null) {
+    // 读取 Cookie 的值
+    String cookieValue = someCookie.getValue();
+    try {
+      visits = Long.parseLong(cookieValue);
+    } catch (NumberFormatException e) {
+      visits = 0l;
+    }
+  }
+
+  // 更新 Cookie 的值
+  visits++;
+
+  // 返回 Cookie 给客户端
+  ctx.addCookie(Cookie.cookie("visits", "" + visits));
+});
+```
+
+Java API
 
 - [Interface CookieHandler](https://vertx.io/docs/apidocs/io/vertx/ext/web/handler/CookieHandler.html)
 - [Interface StaticHandler](https://vertx.io/docs/apidocs/io/vertx/ext/web/handler/StaticHandler.html)
 
-## Upload example [>>](https://github.com/vert-x3/vertx-examples/tree/master/web-examples#upload-example)
+## [Upload example](https://github.com/vert-x3/vertx-examples/tree/master/web-examples#upload-example)
 
-[Source Code](https://github.com/vert-x3/vertx-examples/tree/master/web-examples/src/main/java/io/vertx/example/web/upload)
+[Java Code](https://github.com/vert-x3/vertx-examples/tree/master/web-examples/src/main/java/io/vertx/example/web/upload)
 
-**API**
+```java
+// 一定要先路由到 BodyHandler
+router.route().handler(BodyHandler.create().setUploadsDirectory("uploads"));
+
+router.post("/form").handler(ctx -> {
+
+  ctx.response().putHeader("Content-Type", "text/plain");
+  ctx.response().setChunked(true);
+
+  // 读取文件信息
+  for (FileUpload f : ctx.fileUploads()) {
+    System.out.println("f");
+    ctx.response().write("Filename: " + f.fileName());
+    ctx.response().write("\n");
+    ctx.response().write("Size: " + f.size());
+  }
+
+  ctx.response().end();
+});
+```
+
+Java API
 
 - [Interface FileUpload](https://vertx.io/docs/apidocs/io/vertx/ext/web/FileUpload.html)
 - [setUploadsDirectory](https://vertx.io/docs/apidocs/io/vertx/ext/web/handler/BodyHandler.html#setUploadsDirectory-java.lang.String-)
