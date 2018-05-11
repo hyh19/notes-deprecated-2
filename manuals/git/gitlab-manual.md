@@ -1,4 +1,4 @@
-# [GitLab Practice](https://github.com/mrhuangyuhui/gitlab)
+# [GitLab Manual](https://github.com/mrhuangyuhui/gitlab)
 
 https://gitlab.com/
 
