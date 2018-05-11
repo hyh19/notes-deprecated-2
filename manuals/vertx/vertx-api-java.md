@@ -47,6 +47,7 @@
 
 **[Package io.vertx.core.json](https://vertx.io/docs/apidocs/io/vertx/core/json/package-summary.html)**
 
+- [Class Json](https://vertx.io/docs/apidocs/io/vertx/core/json/Json.html)
 - [Class JsonArray](https://vertx.io/docs/apidocs/io/vertx/core/json/JsonArray.html)
 - [Class JsonObject](https://vertx.io/docs/apidocs/io/vertx/core/json/JsonObject.html)
 
