@@ -1,10 +1,14 @@
-# Git Practice
+# Git Manual
 
 https://git-scm.com/
 
 https://git-scm.com/doc
 
 https://git-scm.com/book/en/v2
+
+---
+
+[TOC]
 
 ## Git Cheat Sheets
 
@@ -64,6 +68,8 @@ https://help.github.com/
 
 ## [GUI Clients](https://git-scm.com/downloads/guis)
 
+## Tools
 
+[GitLab](https://gitlab.com/)
 
-
+[Gogs](https://gogs.io/)
