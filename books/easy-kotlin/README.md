@@ -8,4 +8,6 @@
 
 <https://github.com/EasyKotlin/chapter6_generics>
 
+<https://github.com/EasyKotlin/chatper7_oop>
+
 <https://github.com/EasyKotlin/chapter9_coroutines>
