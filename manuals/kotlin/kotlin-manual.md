@@ -4,13 +4,17 @@
 
 <https://github.com/JetBrains/kotlin>
 
+---
+
+[TOC]
+
 ## Installation
 
 [Working with the Command Line Compiler](https://kotlinlang.org/docs/tutorials/command-line.html)
 
 https://github.com/JetBrains/kotlin/releases/tag/v1.2.30
 
-### SDKMAN!
+### SDKMAN
 
 ```bash
 curl -s https://get.sdkman.io | bash
@@ -23,7 +27,8 @@ sdk install kotlin
 ## Commands
 
 REPL
-```
+
+```bash
 $ kotlinc-jvm
 Welcome to Kotlin version 1.2.30 (JRE 1.8.0_161-b12)
 Type :help for help, :quit for quit
