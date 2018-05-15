@@ -1,5 +1,7 @@
 # [Vert.x Java API](http://vertx.io/docs/apidocs/)
 
+---
+
 [TOC]
 
 ## [All Classes](https://vertx.io/docs/apidocs/allclasses-frame.html)
@@ -23,14 +25,14 @@
 
 - [Interface Buffer](https://vertx.io/docs/apidocs/io/vertx/core/buffer/Buffer.html)
 
-**[Package io.vertx.core.eventbus](https://vertx.io/docs/apidocs/io/vertx/core/eventbus/package-summary.html)**
+### [`io.vertx.core.eventbus`](https://vertx.io/docs/apidocs/io/vertx/core/eventbus/package-summary.html)**
 
 - [Interface EventBus](https://vertx.io/docs/apidocs/io/vertx/core/eventbus/EventBus.html)
 - [Interface Message<T>](https://vertx.io/docs/apidocs/io/vertx/core/eventbus/Message.html)
 - [Interface MessageCodec<S,R>](https://vertx.io/docs/apidocs/io/vertx/core/eventbus/MessageCodec.html)
 - [Interface MessageConsumer<T>](https://vertx.io/docs/apidocs/io/vertx/core/eventbus/MessageConsumer.html)
 
-**[Package io.vertx.core.file](http://vertx.io/docs/apidocs/io/vertx/core/file/package-summary.html)**
+### [`io.vertx.core.file`](http://vertx.io/docs/apidocs/io/vertx/core/file/package-summary.html)
 
 - [Interface AsyncFile](http://vertx.io/docs/apidocs/io/vertx/core/file/AsyncFile.html)
 - [Interface FileSystem](http://vertx.io/docs/apidocs/io/vertx/core/file/FileSystem.html)
@@ -45,18 +47,18 @@
 - [Class HttpHeaders](http://vertx.io/docs/apidocs/io/vertx/core/http/HttpHeaders.html)
 - [Enum HttpMethod](https://vertx.io/docs/apidocs/io/vertx/core/http/HttpMethod.html)
 
-**[Package io.vertx.core.json](https://vertx.io/docs/apidocs/io/vertx/core/json/package-summary.html)**
+### [`io.vertx.core.json`](https://vertx.io/docs/apidocs/io/vertx/core/json/package-summary.html)
 
 - [Class Json](https://vertx.io/docs/apidocs/io/vertx/core/json/Json.html)
 - [Class JsonArray](https://vertx.io/docs/apidocs/io/vertx/core/json/JsonArray.html)
 - [Class JsonObject](https://vertx.io/docs/apidocs/io/vertx/core/json/JsonObject.html)
 
-**[Package io.vertx.core.net](http://vertx.io/docs/apidocs/io/vertx/core/net/package-summary.html)**
+### [`io.vertx.core.net`](http://vertx.io/docs/apidocs/io/vertx/core/net/package-summary.html)
 
 - [Interface NetClient](http://vertx.io/docs/apidocs/io/vertx/core/net/NetClient.html)
 - [Interface NetSocket](http://vertx.io/docs/apidocs/io/vertx/core/net/NetSocket.html)
 
-**[Package io.vertx.core.streams](http://vertx.io/docs/apidocs/io/vertx/core/streams/package-summary.html)**
+### [`io.vertx.core.streams`](http://vertx.io/docs/apidocs/io/vertx/core/streams/package-summary.html)
 
 - [Interface Pump](http://vertx.io/docs/apidocs/io/vertx/core/streams/Pump.html)
 - [Interface ReadStream<T>](http://vertx.io/docs/apidocs/io/vertx/core/streams/ReadStream.html)
@@ -91,7 +93,7 @@
 - [Interface SessionHandler](https://vertx.io/docs/apidocs/io/vertx/ext/web/handler/SessionHandler.html)
 - [Interface StaticHandler](https://vertx.io/docs/apidocs/io/vertx/ext/web/handler/StaticHandler.html)
 
-**[Package io.vertx.ext.web.sstore](https://vertx.io/docs/apidocs/io/vertx/ext/web/sstore/package-summary.html)**
+### [`io.vertx.ext.web.sstore`](https://vertx.io/docs/apidocs/io/vertx/ext/web/sstore/package-summary.html)
 
 - [Interface LocalSessionStore](https://vertx.io/docs/apidocs/io/vertx/ext/web/sstore/LocalSessionStore.html)
 - [Interface SessionStore](https://vertx.io/docs/apidocs/io/vertx/ext/web/sstore/SessionStore.html)
