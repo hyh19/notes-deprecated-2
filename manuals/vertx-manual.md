@@ -61,6 +61,8 @@ dependencies {
 
 [Source](https://github.com/eclipse/vert.x)
 
+- [src/main/java/examples](https://github.com/eclipse/vert.x/tree/master/src/main/java/examples)
+
 [Examples](https://github.com/vert-x3/vertx-examples/tree/master/core-examples)
 
 ## [Web](https://vertx.io/docs/#web)
