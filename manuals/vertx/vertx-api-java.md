@@ -62,6 +62,10 @@
 - [Interface ReadStream<T>](http://vertx.io/docs/apidocs/io/vertx/core/streams/ReadStream.html)
 - [Interface WriteStream<T>](http://vertx.io/docs/apidocs/io/vertx/core/streams/WriteStream.html)
 
+## [`io.vertx.ext.jdbc`](https://vertx.io/docs/apidocs/io/vertx/ext/jdbc/package-summary.html)
+
+- [Interface JDBCClient](https://vertx.io/docs/apidocs/io/vertx/ext/jdbc/JDBCClient.html)
+
 ## `io.vertx.ext.sql.*`
 
 ### [`io.vertx.ext.sql`](https://vertx.io/docs/apidocs/io/vertx/ext/sql/package-summary.html)
