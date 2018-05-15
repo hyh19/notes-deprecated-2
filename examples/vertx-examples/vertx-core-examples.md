@@ -331,9 +331,8 @@ Java API
 @Override
 public void start() throws Exception {
   Future<String> future = anAsyncAction();
-  // 注意：这里传的是方法引用，因为要等到第一个异步操作完成后才开始第二个。
   future.compose(this::anotherAsyncAction)
-    .setHandler(ar -> {
+    .setHandler(ar -> { // Future 完成后（complete 或 fail）会触发这个回调
       if (ar.failed()) {
         // 失败
       } else {
@@ -348,6 +347,7 @@ private Future<String> anAsyncAction() {
   return future;
 }
 
+// 符合函数式接口 Function 的形态
 private Future<String> anotherAsyncAction(String name) {
   Future<String> future = Future.future();
   vertx.setTimer(100, l -> future.complete("hello " + name));
@@ -358,6 +358,7 @@ private Future<String> anotherAsyncAction(String name) {
 Java API
 
 - [compose](https://vertx.io/docs/apidocs/io/vertx/core/Future.html#compose-java.util.function.Function-)
+- [Interface Function<T,R>](https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html)
 
 ## [Verticle examples](https://github.com/vert-x3/vertx-examples/tree/master/core-examples#verticle-examples)
 

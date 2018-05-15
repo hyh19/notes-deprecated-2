@@ -55,7 +55,13 @@ dependencies {
 }
 ```
 
-[Java Manual](https://vertx.io/docs/vertx-core/java/) [API](https://vertx.io/docs/apidocs/)
+[Java Manual](https://vertx.io/docs/vertx-core/java/)
+
+[Java API](https://vertx.io/docs/apidocs/)
+
+[Source](https://github.com/eclipse/vert.x)
+
+- [src/main/java/examples](https://github.com/eclipse/vert.x/tree/master/src/main/java/examples)
 
 [Examples](https://github.com/vert-x3/vertx-examples/tree/master/core-examples)
 
