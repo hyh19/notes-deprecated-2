@@ -87,6 +87,8 @@ dependencies {
 
 [Java Manual](https://vertx.io/docs/vertx-jdbc-client/java/)
 
+[Java Configuration](https://vertx.io/docs/vertx-jdbc-client/java/#_configuration)
+
 [Examples](https://github.com/vert-x3/vertx-examples/tree/master/jdbc-examples)
 
 ### SQL common
