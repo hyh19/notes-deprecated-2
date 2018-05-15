@@ -20,6 +20,7 @@ Ctrl+Shift+Backspace | 返回上次编辑位置
 Ctrl+Shift+反斜杠 | 返回后一次编辑位置
 Ctrl+/ | 注释行代码
 Ctrl+Shift+/ | 注释块代码
+Alt+/ | 自动完成
 Alt+Enter | 自动提示完成
 Ctrl+B | 定位至变量定义的位置
 Ctrl+Alt+B | 定位至选中类或方法的具体实现
