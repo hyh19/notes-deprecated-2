@@ -103,6 +103,30 @@ dependencies {
 
 [Java Manual](https://vertx.io/docs/vertx-sql-common/java/)
 
+### MySQL / PostgreSQL client
+
+```xml
+<dependency>
+  <groupId>io.vertx</groupId>
+  <artifactId>vertx-mysql-postgresql-client</artifactId>
+  <version>3.5.1</version>
+</dependency>
+```
+
+```gradle
+compile 'io.vertx:vertx-mysql-postgresql-client:3.5.1'
+```
+
+[Java Manual](https://vertx.io/docs/vertx-mysql-postgresql-client/java/)
+
+- [Configuration](https://vertx.io/docs/vertx-mysql-postgresql-client/java/#_configuration)
+
+[Java API](https://vertx.io/docs/apidocs/)
+
+[Source](https://github.com/vert-x3/vertx-mysql-postgresql-client)
+
+- [src/main/java/examples](https://github.com/vert-x3/vertx-mysql-postgresql-client/tree/master/src/main/java/examples)
+
 ## Services [>>](https://vertx.io/docs/#services)
 
 [Manual](https://vertx.io/docs/vertx-service-proxy/java) \

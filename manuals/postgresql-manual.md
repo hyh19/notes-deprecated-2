@@ -6,7 +6,7 @@
 
 <https://www.postgresql.org/docs/>
 
-https://github.com/postgres/postgres
+<https://github.com/postgres/postgres>
 
 ---
 
