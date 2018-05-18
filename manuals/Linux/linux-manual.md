@@ -10,6 +10,10 @@ https://github.com/judasn/Linux-Tutorial
 
 https://github.com/arismelachroinos/lscript
 
+---
+
+[TOC]
+
 lsb_release 查看系统版本
 ```
 # 安装
@@ -110,3 +114,63 @@ $ grep 'model name' /proc/cpuinfo | wc -l
 ## Tutorials
 
 http://linux.vbird.org/
+
+## Files
+
+- **`/etc/passwd`**
+
+账号
+
+```bash
+$ head -n 3 /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+```
+
+- **`/etc/shadow`**
+
+账号密码
+
+```bash
+$ head -n 3 /etc/shadow
+root:*:16176:0:99999:7:::
+bin:*:17110:0:99999:7:::
+daemon:*:17110:0:99999:7:::
+```
+
+- **`/etc/group`**
+
+群组
+
+```bash
+$ head -n 3 /etc/group
+root:x:0:
+bin:x:1:
+daemon:x:2:
+```
+
+- **`/etc/gshadow`**
+
+群组密码
+
+```bash
+$ head -n 3 /etc/gshadow
+root:::
+bin:::
+daemon:::
+```
+
+- **`/etc/shells`**
+
+可用的 shells
+
+```bash
+$ cat /etc/shells
+/bin/sh
+/bin/bash
+/sbin/nologin
+/usr/bin/sh
+/usr/bin/bash
+/usr/sbin/nologin
+```
