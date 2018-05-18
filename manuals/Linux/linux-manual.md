@@ -1,14 +1,12 @@
-[TOC]
-
 # Linux Manual
 
-https://www.kernel.org/
+<https://www.kernel.org/>
 
-http://www.gnu.org/
+<http://www.gnu.org/>
 
-https://github.com/judasn/Linux-Tutorial
+<https://github.com/judasn/Linux-Tutorial>
 
-https://github.com/arismelachroinos/lscript
+<https://github.com/arismelachroinos/lscript>
 
 ---
 
@@ -100,6 +98,16 @@ alias ls='ls --color=auto'
 alias mv='mv -i'
 alias rm='rm -i'
 alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
+```
+
+### `source`
+
+读取配置到当前的 shell 环境
+
+```bash
+source ~/.bashrc
+# 用点号也可以
+. ~/.bashrc
 ```
 
 ### `type`
