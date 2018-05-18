@@ -1,14 +1,12 @@
-[TOC]
-
 # Linux Manual
 
-https://www.kernel.org/
+<https://www.kernel.org/>
 
-http://www.gnu.org/
+<http://www.gnu.org/>
 
-https://github.com/judasn/Linux-Tutorial
+<https://github.com/judasn/Linux-Tutorial>
 
-https://github.com/arismelachroinos/lscript
+<https://github.com/arismelachroinos/lscript>
 
 ---
 
@@ -21,7 +19,95 @@ https://github.com/arismelachroinos/lscript
 设置命令别名
 
 ```bash
-alias lm='ls -al'
+$ alias lm='ls -al | more'
+# 查看所有命令别名
+$ alias
+alias cp='cp -i'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+alias l.='ls -d .* --color=auto'
+alias ll='ls -l --color=auto'
+alias lm='ls -al | more'
+alias ls='ls --color=auto'
+alias mv='mv -i'
+alias rm='rm -i'
+alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
+# 删除命令别名
+$ unalias lm
+```
+
+### `history`
+
+历史命令
+
+```bash
+# 查看所有的历史命令
+$ history
+    1  alias
+    2  alias lm='ls -al | more'
+    3  alias
+    4  unalias lm
+    5  history
+# 查看最近三笔历史命令
+$ history 3
+    4  unalias lm
+    5  history
+    6  history 3
+# 把新的历史命令更新到记录文件 ~/.bash_history
+$ history -w
+```
+
+相关变量：`HISTSIZE`
+
+相关文件：`~/.bash_history`
+
+执行历史命令
+
+```bash
+$ history
+    1  alias
+    2  alias lm='ls -al | more'
+    3  alias
+    4  unalias lm
+    5  history
+    6  history 3
+    7  history -w
+    8  echo ${HISTSIZE}
+    9  ll ~/.bash_history
+   10  cat ~/.bash_history
+   11  history
+# 执行第 8 条历史命令
+$ !8
+echo ${HISTSIZE}
+1000
+# 执行最近一条历史命令
+$ !!
+echo ${HISTSIZE}
+1000
+# 执行最近一条以 al 开头的历史命令
+$ !al
+alias
+alias cp='cp -i'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+alias l.='ls -d .* --color=auto'
+alias ll='ls -l --color=auto'
+alias ls='ls --color=auto'
+alias mv='mv -i'
+alias rm='rm -i'
+alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
+```
+
+### `source`
+
+读取配置到当前的 shell 环境
+
+```bash
+source ~/.bashrc
+# 用点号也可以
+. ~/.bashrc
 ```
 
 ### `type`
@@ -40,7 +126,34 @@ $ type cd
 cd is a shell builtin
 ```
 
+### `unalias`
+
+删除命令别名
+
+```bash
+unalias lm
+```
+
 ## Files
+
+### `~/.bash_history`
+
+历史命令
+
+```bash
+$ cat ~/.bash_history
+alias
+alias lm='ls -al | more'
+alias
+unalias lm
+history
+history 3
+history -w
+```
+
+相关命令：`history`
+
+相关变量：`HISTSIZE`
 
 ### `~/.bash_login`
 
@@ -219,6 +332,21 @@ $ cat /etc/shells
 /usr/bin/bash
 /usr/sbin/nologin
 ```
+
+## Variables
+
+### `HISTSIZE`
+
+历史命令的最大数量
+
+```bash
+$ echo ${HISTSIZE}
+1000
+```
+
+相关命令：`history`
+
+相关文件：`~/.bash_history`
 
 lsb_release 查看系统版本
 ```
