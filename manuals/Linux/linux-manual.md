@@ -14,6 +14,212 @@ https://github.com/arismelachroinos/lscript
 
 [TOC]
 
+## Commands
+
+### `alias`
+
+设置命令别名
+
+```bash
+alias lm='ls -al'
+```
+
+### `type`
+
+查看命令的类型
+
+```bash
+$ type ls
+ls is aliased to `ls --color=auto'
+$ type -t ls
+alias
+$ type -a ls
+ls is aliased to `ls --color=auto'
+ls is /usr/bin/ls
+$ type cd
+cd is a shell builtin
+```
+
+## Files
+
+### `~/.bash_login`
+
+个人环境配置
+
+### `~/.bash_logout`
+
+登出 bash 时要做的动作
+
+### `~/.bash_profile`
+
+个人环境配置
+
+```bash
+$ cat ~/.bash_profile
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
+fi
+
+# User specific environment and startup programs
+
+PATH=$PATH:$HOME/bin
+
+export PATH
+```
+
+### `~/.bashrc`
+
+个人环境设置
+
+```bash
+$ cat ~/.bashrc
+# .bashrc
+
+# User specific aliases and functions
+
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+```
+
+### `~/.profile`
+
+个人环境配置
+
+### `/etc/bashrc`
+
+系统环境设定，这个文件是 Red Hat 系统特有的。
+
+```bash
+$ head /etc/bashrc
+# /etc/bashrc
+
+# System wide functions and aliases
+# Environment stuff goes in /etc/profile
+
+# It's NOT a good idea to change this file unless you know what you
+# are doing. It's much better to create a custom.sh shell script in
+# /etc/profile.d/ to make custom changes to your environment, as this
+# will prevent the need for merging in future updates.
+```
+
+### `/etc/group`
+
+群组
+
+```bash
+$ head -n 3 /etc/group
+root:x:0:
+bin:x:1:
+daemon:x:2:
+```
+
+### `/etc/gshadow`
+
+群组密码
+
+```bash
+$ head -n 3 /etc/gshadow
+root:::
+bin:::
+daemon:::
+```
+
+### `/etc/passwd`
+
+账号
+
+```bash
+$ head -n 3 /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+bin:x:1:1:bin:/bin:/sbin/nologin
+daemon:x:2:2:daemon:/sbin:/sbin/nologin
+```
+
+### `/etc/profile`
+
+系统环境配置，不要随意修改这个文件，会影响到整个系统。
+
+```bash
+$ head /etc/profile
+# /etc/profile
+
+# System wide environment and startup programs, for login setup
+# Functions and aliases go in /etc/bashrc
+
+# It's NOT a good idea to change this file unless you know what you
+# are doing. It's much better to create a custom.sh shell script in
+# /etc/profile.d/ to make custom changes to your environment, as this
+# will prevent the need for merging in future updates.
+```
+
+### `/etc/locale.conf`
+
+语系配置
+
+```bash
+$ cat /etc/locale.conf
+LANG=en_US.UTF-8
+```
+
+### `/etc/man_db.conf`
+
+使用手册的配置
+
+### `/etc/profile.d/`
+
+自定义环境设定，被 `/etc/profile` 读取。
+
+```bash
+$ ll /etc/profile.d/
+total 48
+-rw-r--r--. 1 root root  771 Jan 25 15:59 256term.csh
+-rw-r--r--. 1 root root  841 Jan 25 15:59 256term.sh
+-rw-r--r--. 1 root root  196 Mar 24  2017 colorgrep.csh
+-rw-r--r--. 1 root root  201 Mar 24  2017 colorgrep.sh
+-rw-r--r--. 1 root root 1741 Nov  4  2016 colorls.csh
+-rw-r--r--. 1 root root 1606 Nov  4  2016 colorls.sh
+-rw-r--r--. 1 root root 1706 Jan 25 15:59 lang.csh
+-rw-r--r--. 1 root root 2703 Jan 25 15:59 lang.sh
+-rw-r--r--. 1 root root  123 Jul 30  2015 less.csh
+-rw-r--r--. 1 root root  121 Jul 30  2015 less.sh
+-rw-r--r--. 1 root root  164 Jan 27  2014 which2.csh
+-rw-r--r--. 1 root root  169 Jan 27  2014 which2.sh
+```
+
+### `/etc/shadow`
+
+账号密码
+
+```bash
+$ head -n 3 /etc/shadow
+root:*:16176:0:99999:7:::
+bin:*:17110:0:99999:7:::
+daemon:*:17110:0:99999:7:::
+```
+
+### `/etc/shells`
+
+可用的 shells
+
+```bash
+$ cat /etc/shells
+/bin/sh
+/bin/bash
+/sbin/nologin
+/usr/bin/sh
+/usr/bin/bash
+/usr/sbin/nologin
+```
+
 lsb_release 查看系统版本
 ```
 # 安装
@@ -114,63 +320,3 @@ $ grep 'model name' /proc/cpuinfo | wc -l
 ## Tutorials
 
 http://linux.vbird.org/
-
-## Files
-
-- **`/etc/passwd`**
-
-账号
-
-```bash
-$ head -n 3 /etc/passwd
-root:x:0:0:root:/root:/bin/bash
-bin:x:1:1:bin:/bin:/sbin/nologin
-daemon:x:2:2:daemon:/sbin:/sbin/nologin
-```
-
-- **`/etc/shadow`**
-
-账号密码
-
-```bash
-$ head -n 3 /etc/shadow
-root:*:16176:0:99999:7:::
-bin:*:17110:0:99999:7:::
-daemon:*:17110:0:99999:7:::
-```
-
-- **`/etc/group`**
-
-群组
-
-```bash
-$ head -n 3 /etc/group
-root:x:0:
-bin:x:1:
-daemon:x:2:
-```
-
-- **`/etc/gshadow`**
-
-群组密码
-
-```bash
-$ head -n 3 /etc/gshadow
-root:::
-bin:::
-daemon:::
-```
-
-- **`/etc/shells`**
-
-可用的 shells
-
-```bash
-$ cat /etc/shells
-/bin/sh
-/bin/bash
-/sbin/nologin
-/usr/bin/sh
-/usr/bin/bash
-/usr/sbin/nologin
-```
