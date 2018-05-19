@@ -116,6 +116,10 @@ source ~/.bashrc
 
 参考学习笔记《鸟哥的 Linux 私房菜 基础篇》第十三章
 
+### `sudo`
+
+以另一身份执行命令，通常是 root 身份。
+
 ### `type`
 
 查看命令的类型
@@ -337,6 +341,32 @@ $ cat /etc/shells
 /usr/bin/sh
 /usr/bin/bash
 /usr/sbin/nologin
+```
+
+### `/etc/sudoers`
+
+记录有权限执行 `sudo` 命令的账号和可以执行哪些命令，只能用 `visudo` 进行编辑。
+
+```bash
+$ visudo
+# 定义主机别名
+Host_Alias     FILESERVERS = fs1, fs2
+
+# 定义用户别名
+User_Alias ADMINS = jsmith, mikem
+
+# 定义命令别名
+Cmnd_Alias NETWORKING = /sbin/route, /sbin/ifconfig, /bin/ping, /sbin/dhclient, /usr/bin/net, /sbin/iptables, /u
+sr/bin/rfcomm, /usr/bin/wvdial, /sbin/iwconfig, /sbin/mii-tool
+
+# 允许用户 root 在任何主机执行任何命令，括号里的 ALL 表示可切换的身份。
+root    ALL=(ALL)       ALL
+
+# 允许群组 wheel 的成员在任何主机执行任何命令
+%wheel  ALL=(ALL)       ALL
+
+# 同上，但不需要密码
+%wheel        ALL=(ALL)       NOPASSWD: ALL
 ```
 
 ## Variables
