@@ -54,38 +54,40 @@ tcp        0      0 127.0.0.1:5432          0.0.0.0:*               LISTEN      
 tcp6       0      0 ::1:5432                :::*                    LISTEN      1393/postmaster
 ```
 
-- 初次安装后，默认生成一个名为 postgres 的数据库和一个名为 postgres 的数据库用户。这里需要注意的是，同时还生成了一个名为 postgres 的 Linux 系统用户。
+- 初次安装后，默认生成一个名为 postgres 的数据库和一个名为 postgres 的数据库用户。这里需要注意的是，同时还生成了一个名为 postgres 的 Linux 账号。
 
 ```bash
-# 系统用户
+# Linux 账号
 $ id postgres
 uid=26(postgres) gid=26(postgres) groups=26(postgres)
+$ grep postgres /etc/passwd
+postgres:x:26:26:PostgreSQL Server:/var/lib/pgsql:/bin/bash # 注意：是 login shell
 ```
 
-- 客户端 `psql` 连接服务器默认强制要求系统用户和数据库用户名称一致（`peer`）。
+- 客户端 `psql` 连接服务器默认强制要求 Linux 账号和数据库用户名称一致（`peer`）。
 
 添加新用户和新数据库
 
 - 方法一：使用 PostgreSQL 控制台
 
 ```bash
-# 新建一个 Linux 系统用户（与要建的数据库用户同名）
-$ sudo adduser tiger
+# 新建一个 Linux 账号（与要建的数据库用户同名）
+$ sudo useradd tiger
 $ id tiger
 uid=1001(tiger) gid=1001(tiger) groups=1001(tiger)
 
-# 切换到 Linux 系统用户 postgres（安装 PostgreSQL 时自动创建的）
+# 切换到 Linux 账号 postgres（安装 PostgreSQL 时自动创建的）
 $ sudo su - postgres
--bash-4.2$
+-bash-4.2$ # 这是 postgres 账号使用的 shell，但是无一般看到的提示语。
 
-# 使用 psql 命令登录 PostgreSQL 控制台。这时相当于系统用户 postgres 以同名数据库用户的身份登录数据库，这是不用输入密码的。
+# 使用 psql 命令登录 PostgreSQL 控制台。这时相当于 Linux 账号 postgres 以同名数据库用户的身份登录数据库，这是不用输入密码的。
 -bash-4.2$ psql
 psql (10.4)
 Type "help" for help. # 控制台帮助命令 help
 
 postgres> # 控制台命令输入界面，命令前面一般有反斜杠 \。
 
-# 为 postgres 用户（当前登录的数据库用户）设置一个密码
+# 为 postgres 数据库用户（当前登录的）设置一个密码
 postgres> \password postgres
 Enter new password:
 Enter it again:
@@ -108,6 +110,34 @@ postgres> \q
 ```
 
 - 方法二：使用 shell 命令行
+
+```bash
+# 创建 Linux 系统账号
+$ useradd -r monkey
+$ id monkey
+uid=994(monkey) gid=991(monkey) groups=991(monkey)
+
+# 切换到 Linux 账号 postgres
+$ su - postgres
+-bash-4.2$
+
+# 直接使用可执行程序 createuser 创建数据库用户 monkey
+-bash-4.2$ createuser --superuser monkey
+
+# 以 postgres 数据库用户身份登录控制台
+-bash-4.2$ psql
+psql (10.4)
+Type "help" for help.
+
+# 为数据库用户创建密码
+postgres=# \password monkey
+Enter new password:
+Enter it again:
+postgres=# \q
+# 直接使用可执行程序 createdb 创建用户数据库
+-bash-4.2$ createdb -O monkey monkey_db
+postgres=# \q
+```
 
 ## Files
 

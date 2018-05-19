@@ -120,6 +120,8 @@ source ~/.bashrc
 
 以另一身份执行命令，通常是 root 身份。
 
+详情查看笔记 SUDO Manual
+
 ### `type`
 
 查看命令的类型
