@@ -166,9 +166,39 @@ systemctl start postgresql-10
 
 ## Files
 
+查看客户端和服务器的所有文件
+
 ```bash
 rpm -ql postgresql10
 rpm -ql postgresql10-server
+```
+
+客户端可执行文件
+
+```bash
+$ rpm -ql postgresql10 | grep bin
+/usr/pgsql-10/bin/clusterdb
+/usr/pgsql-10/bin/createdb
+/usr/pgsql-10/bin/createuser
+/usr/pgsql-10/bin/dropdb
+/usr/pgsql-10/bin/dropuser
+/usr/pgsql-10/bin/pg_archivecleanup
+/usr/pgsql-10/bin/pg_basebackup
+/usr/pgsql-10/bin/pg_config
+/usr/pgsql-10/bin/pg_dump
+/usr/pgsql-10/bin/pg_dumpall
+/usr/pgsql-10/bin/pg_isready
+/usr/pgsql-10/bin/pg_receivewal
+/usr/pgsql-10/bin/pg_restore
+/usr/pgsql-10/bin/pg_rewind
+/usr/pgsql-10/bin/pg_test_fsync
+/usr/pgsql-10/bin/pg_test_timing
+/usr/pgsql-10/bin/pg_upgrade
+/usr/pgsql-10/bin/pg_waldump
+/usr/pgsql-10/bin/pgbench
+/usr/pgsql-10/bin/psql
+/usr/pgsql-10/bin/reindexdb
+/usr/pgsql-10/bin/vacuumdb
 ```
 
 服务器配置文件
@@ -176,6 +206,7 @@ rpm -ql postgresql10-server
 ```bash
 $ rpm -ql postgresql10-server | grep conf
 /etc/sysconfig/pgsql
+# 配置文件
 /usr/lib/tmpfiles.d/postgresql-10.conf
 /usr/pgsql-10/share/pg_hba.conf.sample
 /usr/pgsql-10/share/pg_ident.conf.sample
@@ -183,6 +214,10 @@ $ rpm -ql postgresql10-server | grep conf
 /usr/pgsql-10/share/postgresql.conf.sample
 /usr/pgsql-10/share/recovery.conf.sample
 ```
+
+`/var/lib/pgsql/10/data`
+
+服务器数据
 
 ## Commands
 
@@ -213,9 +248,9 @@ $ psql -V
 psql (PostgreSQL) 10.4
 ```
 
-## References
+## [References](https://www.postgresql.org/docs/manuals/)
 
-<https://www.postgresql.org/docs/manuals/>
+[PostgreSQL 10.4 Documentation](https://www.postgresql.org/docs/10/static/index.html)
 
 ## Tutorials
 
