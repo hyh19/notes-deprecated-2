@@ -27,4 +27,10 @@ CREATE DATABASE
 postgres=#\q
 # 导入数据库
 -bash-4.2$ pg_restore -d dvdrental /tmp/dvdrental.tar
+# 重新登录控制台并连接测试数据库
+-bash-4.2$ psql dvdrental
+psql (10.4)
+Type "help" for help.
+
+dvdrental=#
 ```
