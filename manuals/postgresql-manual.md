@@ -104,10 +104,10 @@ psql (10.4)
 Type "help" for help.
 
 # 为数据库用户创建密码
-postgres=# \password elephant
+postgres> \password elephant
 Enter new password:
 Enter it again:
-postgres=# \q
+postgres> \q
 # 直接使用可执行程序 createdb 创建用户数据库
 -bash-4.2$ createdb -O elephant elephant_db
 ```
@@ -122,16 +122,16 @@ $ su - elephant
 psql (10.4)
 Type "help" for help.
 
-elephant_db=# help
+elephant_db> help
 
 Type:  \copyright for distribution terms
        \h for help with SQL commands
        \? for help with psql commands # 查看控制台命令
        \g or terminate with semicolon to execute query
        \q to quit
-elephant_db=# \l # 列出所有数据库
-elephant_db=# \d # 列出当前数据库的所有表
-elephant_db=# \du # 列出所有用户
+elephant_db> \l # 列出所有数据库
+elephant_db> \d # 列出当前数据库的所有表
+elephant_db> \du # 列出所有用户
 ```
 
 远程连接数据库
@@ -404,6 +404,8 @@ psql (PostgreSQL) 10.4
 ```
 
 ### `pg_ctl`
+
+### `pg_restore`
 
 ## Configurations
 
