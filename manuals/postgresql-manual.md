@@ -112,7 +112,7 @@ postgres=# \q
 -bash-4.2$ createdb -O elephant elephant_db
 ```
 
-登录数据库
+本地数据库
 
 ```bash
 # 注意：默认强制要求 Linux 账号和要登录的数据库用户同名，所以，先切换到同名的 Linux 账号。
@@ -133,6 +133,10 @@ elephant_db=# \l # 列出所有数据库
 elephant_db=# \d # 列出当前数据库的所有表
 elephant_db=# \du # 列出所有用户
 ```
+
+远程连接数据库
+
+- 编辑 `/var/lib/pgsql/10/data/postgresql.conf` 并设置 `listen_addresses = '*'`
 
 ## [Installation](https://www.postgresql.org/download/)
 
@@ -353,6 +357,16 @@ drwx------. 3 postgres postgres    60 May 20 04:19 pg_xlog
 
 ## Commands
 
+```bash
+systemctl start postgresql-10
+systemctl stop postgresql-10
+systemctl restart postgresql-10
+
+systemctl start postgresql.service
+systemctl stop postgresql.service
+systemctl restart postgresql.service
+```
+
 ### `psql`
 
 查看快速帮助
@@ -389,6 +403,8 @@ psql (PostgreSQL) 10.4
 
 ### `postgresql.conf`
 
+服务器配置
+
 ```bash
 /var/lib/pgsql/10/data/postgresql.conf
 ```
@@ -397,6 +413,14 @@ psql (PostgreSQL) 10.4
 --- | --- | --- | ---
 `listen_addresses` | 监听的 IP 地址，`*` 表示所有地址。 | `string` | `localhost`
 `port` | 监听的端口号 | `integer` | 5432
+
+### `pg_hba.conf`
+
+访问控制配置
+
+```bash
+/var/lib/pgsql/10/data/pg_hba.conf
+```
 
 ## [References](https://www.postgresql.org/docs/manuals/)
 
