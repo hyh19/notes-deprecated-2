@@ -137,6 +137,15 @@ elephant_db=# \du # 列出所有用户
 远程连接数据库
 
 - 编辑 `/var/lib/pgsql/10/data/postgresql.conf` 并设置 `listen_addresses = '*'`
+- 编辑 `/var/lib/pgsql/10/data/pg_hba.conf` 并设置 `host    all             all             0.0.0.0/0               password`
+
+上述两项修改完成后重新加载配置
+
+```bash
+$ su - postgres
+-bash-4.2$ /usr/pgsql-10/bin/pg_ctl reload
+server signaled
+```
 
 ## [Installation](https://www.postgresql.org/download/)
 
@@ -394,6 +403,8 @@ $ psql -V
 psql (PostgreSQL) 10.4
 ```
 
+### `pg_ctl`
+
 ## Configurations
 
 [Server Configuration](https://www.postgresql.org/docs/10/static/runtime-config.html)
@@ -420,6 +431,11 @@ psql (PostgreSQL) 10.4
 
 ```bash
 /var/lib/pgsql/10/data/pg_hba.conf
+```
+
+```bash
+# 任何主机任何用户任何数据库都可以通过账号密码远程连接
+host    all             all             0.0.0.0/0               password
 ```
 
 ## [References](https://www.postgresql.org/docs/manuals/)
