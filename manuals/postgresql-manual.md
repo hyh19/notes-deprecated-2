@@ -157,7 +157,7 @@ yum install -y postgresql10
 # 安装服务器
 yum install -y postgresql10-server
 
-# 初始化数据库
+# 初始化数据目录
 /usr/pgsql-10/bin/postgresql-10-setup initdb
 
 # 设置开机启动
@@ -224,6 +224,12 @@ $ rpm -ql postgresql
 服务器配置文件（在数据目录下）
 
 ```bash
+$ ll /var/lib/pgsql/10/data | grep conf
+-rw-------. 1 postgres postgres  4269 May 20 07:43 pg_hba.conf
+-rw-------. 1 postgres postgres  1636 May 20 07:43 pg_ident.conf
+-rw-------. 1 postgres postgres    88 May 20 07:43 postgresql.auto.conf
+-rw-------. 1 postgres postgres 22761 May 20 07:43 postgresql.conf
+
 $ ll /var/lib/pgsql/data | grep conf
 -rw-------. 1 postgres postgres  4232 May 20 04:19 pg_hba.conf
 -rw-------. 1 postgres postgres  1636 May 20 04:19 pg_ident.conf
@@ -253,6 +259,16 @@ $ rpm -ql postgresql-server | grep conf
 服务器可执行文件
 
 ```bash
+$ rpm -ql postgresql10-server | grep bin
+/usr/pgsql-10/bin/initdb
+/usr/pgsql-10/bin/pg_controldata
+/usr/pgsql-10/bin/pg_ctl
+/usr/pgsql-10/bin/pg_resetwal
+/usr/pgsql-10/bin/postgres
+/usr/pgsql-10/bin/postgresql-10-check-db-dir
+/usr/pgsql-10/bin/postgresql-10-setup
+/usr/pgsql-10/bin/postmaster
+
 $ rpm -ql postgresql-server | grep bin
 /usr/bin/initdb
 /usr/bin/pg_basebackup
@@ -325,6 +341,10 @@ $ rpm -ql postgresql | grep bin
 服务器日志目录
 
 ```bash
+$ ll /var/lib/pgsql/10/data | grep log
+-rw-------. 1 postgres postgres    30 May 20 07:43 current_logfiles
+drwx------. 2 postgres postgres    32 May 20 07:43 log
+
 $ ll /var/lib/pgsql/data/ | grep log
 drwx------. 2 postgres postgres    18 May 20 04:19 pg_clog
 drwx------. 2 postgres postgres    32 May 20 04:20 pg_log
