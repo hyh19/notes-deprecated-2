@@ -142,7 +142,10 @@ elephant_db=# \du # 列出所有用户
 
 ##### POSTGRESQL YUM REPOSITORY
 
+使用官方仓库来安装
+
 ```bash
+## CentOS 7.5
 ## 以下安装命令基于 CentOS 7 + PostgreSQL 10 由官网自动生成
 
 # 配置软件仓库
@@ -160,17 +163,107 @@ yum install -y postgresql10-server
 # 设置开机启动
 systemctl enable postgresql-10
 
-# 启动服务器
+# 启动服务
 systemctl start postgresql-10
+
+# 查看安装的文件
+rpm -ql postgresql10-server
+rpm -ql postgresql10
+```
+
+##### INCLUDED IN DISTRIBUTION
+
+使用 CentOS 的仓库来安装
+
+```bash
+## CentOS 7.5
+
+# 安装服务器的同时会连带安装客户端 postgresql
+$ yum install -y postgresql-server
+
+# 自动创建的 Linux 账号
+$ id postgres
+uid=26(postgres) gid=26(postgres) groups=26(postgres)
+
+# 初始化数据库
+$ postgresql-setup initdb
+Initializing database ... OK
+
+# 开机启动
+$ systemctl enable postgresql.service
+
+# 启动服务
+$ systemctl start postgresql.service
+
+# 监听的端口
+$ netstat -tulnp | grep post
+tcp        0      0 127.0.0.1:5432          0.0.0.0:*               LISTEN      1323/postgres
+tcp6       0      0 ::1:5432                :::*                    LISTEN      1323/postgres
+
+# 查看安装的文件
+$ rpm -ql postgresql-server
+$ rpm -ql postgresql
 ```
 
 ## Files
 
-查看客户端和服务器的所有文件
+查看服务器和客户端安装的文件
 
 ```bash
-rpm -ql postgresql10
+# 使用官方仓库安装
 rpm -ql postgresql10-server
+rpm -ql postgresql10
+
+# 使用 CentOS 仓库安装
+$ rpm -ql postgresql-server
+$ rpm -ql postgresql
+```
+
+### Configuration
+
+服务器配置文件（在数据目录下）
+
+```bash
+$ ll /var/lib/pgsql/data | grep conf
+-rw-------. 1 postgres postgres  4232 May 20 04:19 pg_hba.conf
+-rw-------. 1 postgres postgres  1636 May 20 04:19 pg_ident.conf
+-rw-------. 1 postgres postgres 19845 May 20 04:19 postgresql.conf
+```
+
+服务器配置文件模板
+
+```bash
+$ rpm -ql postgresql10-server | grep conf
+/usr/pgsql-10/share/pg_hba.conf.sample
+/usr/pgsql-10/share/pg_ident.conf.sample
+/usr/pgsql-10/share/pg_service.conf.sample
+/usr/pgsql-10/share/postgresql.conf.sample
+/usr/pgsql-10/share/recovery.conf.sample
+
+$ rpm -ql postgresql-server | grep conf
+/usr/share/pgsql/pg_hba.conf.sample
+/usr/share/pgsql/pg_ident.conf.sample
+/usr/share/pgsql/pg_service.conf.sample
+/usr/share/pgsql/postgresql.conf.sample
+/usr/share/pgsql/recovery.conf.sample
+```
+
+### Executables
+
+服务器可执行文件
+
+```bash
+$ rpm -ql postgresql-server | grep bin
+/usr/bin/initdb
+/usr/bin/pg_basebackup
+/usr/bin/pg_controldata
+/usr/bin/pg_ctl
+/usr/bin/pg_receivexlog
+/usr/bin/pg_resetxlog
+/usr/bin/postgres
+/usr/bin/postgresql-check-db-dir
+/usr/bin/postgresql-setup
+/usr/bin/postmaster
 ```
 
 客户端可执行文件
@@ -199,25 +292,44 @@ $ rpm -ql postgresql10 | grep bin
 /usr/pgsql-10/bin/psql
 /usr/pgsql-10/bin/reindexdb
 /usr/pgsql-10/bin/vacuumdb
+
+$ rpm -ql postgresql | grep bin
+/usr/bin/clusterdb
+/usr/bin/createdb
+/usr/bin/createlang
+/usr/bin/createuser
+/usr/bin/dropdb
+/usr/bin/droplang
+/usr/bin/dropuser
+/usr/bin/pg_config
+/usr/bin/pg_dump
+/usr/bin/pg_dumpall
+/usr/bin/pg_restore
+/usr/bin/psql
+/usr/bin/reindexdb
+/usr/bin/vacuumdb
 ```
 
-服务器配置文件
+### Data
+
+服务器数据目录
 
 ```bash
-$ rpm -ql postgresql10-server | grep conf
-/etc/sysconfig/pgsql
-# 配置文件
-/usr/lib/tmpfiles.d/postgresql-10.conf
-/usr/pgsql-10/share/pg_hba.conf.sample
-/usr/pgsql-10/share/pg_ident.conf.sample
-/usr/pgsql-10/share/pg_service.conf.sample
-/usr/pgsql-10/share/postgresql.conf.sample
-/usr/pgsql-10/share/recovery.conf.sample
+/var/lib/pgsql/10/data
+
+/var/lib/pgsql/data
 ```
 
-`/var/lib/pgsql/10/data`
+### Log
 
-服务器数据
+服务器日志目录
+
+```bash
+$ ll /var/lib/pgsql/data/ | grep log
+drwx------. 2 postgres postgres    18 May 20 04:19 pg_clog
+drwx------. 2 postgres postgres    32 May 20 04:20 pg_log
+drwx------. 3 postgres postgres    60 May 20 04:19 pg_xlog
+```
 
 ## Commands
 
