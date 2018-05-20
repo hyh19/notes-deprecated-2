@@ -380,6 +380,24 @@ $ psql -V
 psql (PostgreSQL) 10.4
 ```
 
+## Configurations
+
+[Server Configuration](https://www.postgresql.org/docs/10/static/runtime-config.html)
+
+- [File Locations](https://www.postgresql.org/docs/10/static/runtime-config-file-locations.html)
+- [Connection Settings](https://www.postgresql.org/docs/10/static/runtime-config-connection.html#RUNTIME-CONFIG-CONNECTION-SETTINGS)
+
+### `postgresql.conf`
+
+```bash
+/var/lib/pgsql/10/data/postgresql.conf
+```
+
+参数 | 说明 | 数据类型 | 默认值
+--- | --- | --- | ---
+`listen_addresses` | 监听的 IP 地址，`*` 表示所有地址。 | `string` | `localhost`
+`port` | 监听的端口号 | `integer` | 5432
+
 ## [References](https://www.postgresql.org/docs/manuals/)
 
 [PostgreSQL 10.4 Documentation](https://www.postgresql.org/docs/10/static/index.html)
