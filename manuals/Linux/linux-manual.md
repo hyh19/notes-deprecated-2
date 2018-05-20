@@ -100,6 +100,16 @@ alias rm='rm -i'
 alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
 ```
 
+### `join`
+
+按关键字列拼接两个文本文件
+
+相关笔记：
+
+JOIN Manual
+
+《Shell 从入门到精通》第 9 章
+
 ### `source`
 
 读取配置到当前的 shell 环境
