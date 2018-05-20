@@ -104,15 +104,15 @@ psql (10.4)
 Type "help" for help.
 
 # 为数据库用户创建密码
-postgres=# \password elephant
+postgres> \password elephant
 Enter new password:
 Enter it again:
-postgres=# \q
+postgres> \q
 # 直接使用可执行程序 createdb 创建用户数据库
 -bash-4.2$ createdb -O elephant elephant_db
 ```
 
-登录数据库
+本地数据库
 
 ```bash
 # 注意：默认强制要求 Linux 账号和要登录的数据库用户同名，所以，先切换到同名的 Linux 账号。
@@ -122,16 +122,29 @@ $ su - elephant
 psql (10.4)
 Type "help" for help.
 
-elephant_db=# help
+elephant_db> help
 
 Type:  \copyright for distribution terms
        \h for help with SQL commands
        \? for help with psql commands # 查看控制台命令
        \g or terminate with semicolon to execute query
        \q to quit
-elephant_db=# \l # 列出所有数据库
-elephant_db=# \d # 列出当前数据库的所有表
-elephant_db=# \du # 列出所有用户
+elephant_db> \l # 列出所有数据库
+elephant_db> \d # 列出当前数据库的所有表
+elephant_db> \du # 列出所有用户
+```
+
+远程连接数据库
+
+- 编辑 `/var/lib/pgsql/10/data/postgresql.conf` 并设置 `listen_addresses = '*'`
+- 编辑 `/var/lib/pgsql/10/data/pg_hba.conf` 并设置 `host    all             all             0.0.0.0/0               password`
+
+上述两项修改完成后重新加载配置
+
+```bash
+$ su - postgres
+-bash-4.2$ /usr/pgsql-10/bin/pg_ctl reload
+server signaled
 ```
 
 ## [Installation](https://www.postgresql.org/download/)
@@ -157,7 +170,7 @@ yum install -y postgresql10
 # 安装服务器
 yum install -y postgresql10-server
 
-# 初始化数据库
+# 初始化数据目录
 /usr/pgsql-10/bin/postgresql-10-setup initdb
 
 # 设置开机启动
@@ -224,6 +237,12 @@ $ rpm -ql postgresql
 服务器配置文件（在数据目录下）
 
 ```bash
+$ ll /var/lib/pgsql/10/data | grep conf
+-rw-------. 1 postgres postgres  4269 May 20 07:43 pg_hba.conf
+-rw-------. 1 postgres postgres  1636 May 20 07:43 pg_ident.conf
+-rw-------. 1 postgres postgres    88 May 20 07:43 postgresql.auto.conf
+-rw-------. 1 postgres postgres 22761 May 20 07:43 postgresql.conf
+
 $ ll /var/lib/pgsql/data | grep conf
 -rw-------. 1 postgres postgres  4232 May 20 04:19 pg_hba.conf
 -rw-------. 1 postgres postgres  1636 May 20 04:19 pg_ident.conf
@@ -253,6 +272,16 @@ $ rpm -ql postgresql-server | grep conf
 服务器可执行文件
 
 ```bash
+$ rpm -ql postgresql10-server | grep bin
+/usr/pgsql-10/bin/initdb
+/usr/pgsql-10/bin/pg_controldata
+/usr/pgsql-10/bin/pg_ctl
+/usr/pgsql-10/bin/pg_resetwal
+/usr/pgsql-10/bin/postgres
+/usr/pgsql-10/bin/postgresql-10-check-db-dir
+/usr/pgsql-10/bin/postgresql-10-setup
+/usr/pgsql-10/bin/postmaster
+
 $ rpm -ql postgresql-server | grep bin
 /usr/bin/initdb
 /usr/bin/pg_basebackup
@@ -325,6 +354,10 @@ $ rpm -ql postgresql | grep bin
 服务器日志目录
 
 ```bash
+$ ll /var/lib/pgsql/10/data | grep log
+-rw-------. 1 postgres postgres    30 May 20 07:43 current_logfiles
+drwx------. 2 postgres postgres    32 May 20 07:43 log
+
 $ ll /var/lib/pgsql/data/ | grep log
 drwx------. 2 postgres postgres    18 May 20 04:19 pg_clog
 drwx------. 2 postgres postgres    32 May 20 04:20 pg_log
@@ -332,6 +365,16 @@ drwx------. 3 postgres postgres    60 May 20 04:19 pg_xlog
 ```
 
 ## Commands
+
+```bash
+systemctl start postgresql-10
+systemctl stop postgresql-10
+systemctl restart postgresql-10
+
+systemctl start postgresql.service
+systemctl stop postgresql.service
+systemctl restart postgresql.service
+```
 
 ### `psql`
 
@@ -358,6 +401,43 @@ psql --help
 ```bash
 $ psql -V
 psql (PostgreSQL) 10.4
+```
+
+### `pg_ctl`
+
+### `pg_restore`
+
+## Configurations
+
+[Server Configuration](https://www.postgresql.org/docs/10/static/runtime-config.html)
+
+- [File Locations](https://www.postgresql.org/docs/10/static/runtime-config-file-locations.html)
+- [Connection Settings](https://www.postgresql.org/docs/10/static/runtime-config-connection.html#RUNTIME-CONFIG-CONNECTION-SETTINGS)
+
+### `postgresql.conf`
+
+服务器配置
+
+```bash
+/var/lib/pgsql/10/data/postgresql.conf
+```
+
+参数 | 说明 | 数据类型 | 默认值
+--- | --- | --- | ---
+`listen_addresses` | 监听的 IP 地址，`*` 表示所有地址。 | `string` | `localhost`
+`port` | 监听的端口号 | `integer` | 5432
+
+### `pg_hba.conf`
+
+访问控制配置
+
+```bash
+/var/lib/pgsql/10/data/pg_hba.conf
+```
+
+```bash
+# 任何主机任何用户任何数据库都可以通过账号密码远程连接
+host    all             all             0.0.0.0/0               password
 ```
 
 ## [References](https://www.postgresql.org/docs/manuals/)
