@@ -58,8 +58,9 @@ mvn archetype:generate -B \
 
 ### POM
 
-https://maven.apache.org/ref/3.5.2/maven-model/maven.html \
-https://maven.apache.org/xsd/maven-4.0.0.xsd
+<https://maven.apache.org/ref/3.5.2/maven-model/maven.html>
+
+<https://maven.apache.org/xsd/maven-4.0.0.xsd>
 
 - [activation](https://maven.apache.org/ref/3.5.2/maven-model/maven.html#class_activation)
 - [build](https://maven.apache.org/ref/3.5.2/maven-model/maven.html#class_build)

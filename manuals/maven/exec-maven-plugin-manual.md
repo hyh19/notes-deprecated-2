@@ -1,6 +1,10 @@
-# [Exec Maven Plugin](https://www.mojohaus.org/exec-maven-plugin/)
+# [Exec Maven Plugin Manual](https://www.mojohaus.org/exec-maven-plugin/)
 
 简化执行系统程序和 Java 程序的一个 Maven 插件
+
+> 特别注意：
+> - 在 `</plugin>` 下面写配置（相当于插件的全局配置），运行插件时可以不指定 `</id>`，如 `mvn exec:exec` 或 `mvn exec:exec@my_id` 都可以。
+> - 在 `</execution>` 下面写配置（相当于插件的局部配置），运行插件时必须指定 `</id>`，如 `mvn exec:exec@my_id`。
 
 ---
 
@@ -128,7 +132,7 @@
 
 `<classpath/>` 表示项目的所有依赖
 
-执行命令 `mvn exec:java` 后，相当于在当前工作目录执行命令 `java -classpath ... com.example.Main`。
+执行命令 `mvn exec:exec` 后，相当于在当前工作目录执行命令 `java -classpath ... com.example.Main`。
 
 以下配置指定了特定的依赖
 
