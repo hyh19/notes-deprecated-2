@@ -1,12 +1,14 @@
 # [Exec Maven Plugin](https://www.mojohaus.org/exec-maven-plugin/)
 
+简化执行系统程序和 Java 程序的一个 Maven 插件
+
 ---
 
 [TOC]
 
 ## [Usage](https://www.mojohaus.org/exec-maven-plugin/usage.html)
 
-### Exec goal
+### [Exec goal](https://www.mojohaus.org/exec-maven-plugin/exec-mojo.html)
 
 ```xml
 <project>
@@ -42,7 +44,9 @@
 </project>
 ```
 
-### Java goal
+执行命令 `mvn exec:exec` 后，相当于在指定工作目录 `/tmp` 执行命令 `maven -X myproject:dist`。
+
+### [Java goal](https://www.mojohaus.org/exec-maven-plugin/java-mojo.html)
 
 ```xml
 <project>
@@ -82,25 +86,27 @@
 </project>
 ```
 
+执行命令 `mvn exec:java` 后，相当于在当前工作目录执行命令 `java -Dmyproperty=myvalue com.example.Main argument1`。
+
 ## [Goals](https://www.mojohaus.org/exec-maven-plugin/plugin-info.html)
 
 ### [`exec:exec`](https://www.mojohaus.org/exec-maven-plugin/exec-mojo.html)
 
-运行可执行程序 如 `java com.example.Main`
+执行系统程序
 
 配置参数 | 说明
 --- | ---
-[`arguments`](https://www.mojohaus.org/exec-maven-plugin/exec-mojo.html#arguments) | 对应命令行中的参数
+[`arguments`](https://www.mojohaus.org/exec-maven-plugin/exec-mojo.html#arguments) | 对应命令行中的参数列表
 [`executable`](https://www.mojohaus.org/exec-maven-plugin/exec-mojo.html#executable) | 对应命令行中的可执行程序
 
 ### [`exec:java`](https://www.mojohaus.org/exec-maven-plugin/java-mojo.html)
 
-运行 Java 类
+执行 Java 程序
 
 配置参数 | 说明
 --- | ---
-[`mainClass`](https://www.mojohaus.org/exec-maven-plugin/java-mojo.html#mainClass) | 要运行的 Java 类
-[`arguments`](https://www.mojohaus.org/exec-maven-plugin/java-mojo.html#arguments) | Java 类的参数
+[`mainClass`](https://www.mojohaus.org/exec-maven-plugin/java-mojo.html#mainClass) | 对应 Java 程序的主类
+[`arguments`](https://www.mojohaus.org/exec-maven-plugin/java-mojo.html#arguments) | 对应 Java 程序主类的参数
 
 ## Examples
 
@@ -120,8 +126,23 @@
 </configuration>
 ```
 
-相当于命令行
+`<classpath/>` 表示项目的所有依赖
 
-```bash
-java -classpath ... com.example.Main
+执行命令 `mvn exec:java` 后，相当于在当前工作目录执行命令 `java -classpath ... com.example.Main`。
+
+以下配置指定了特定的依赖
+
+```xml
+<configuration>
+  <executable>java</executable>
+  <arguments>
+    <argument>-classpath</argument>
+    <classpath>
+      <dependency>commons-io:commons-io</dependency>
+      <dependency>commons-lang:commons-lang</dependency>
+    </classpath>
+    <argument>com.example.Main</argument>
+    ...
+  </arguments>
+</configuration>
 ```
