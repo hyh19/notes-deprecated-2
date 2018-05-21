@@ -1,4 +1,6 @@
-# [Exec Maven Plugin Manual](https://www.mojohaus.org/exec-maven-plugin/)
+# [Exec Maven Plugin](https://www.mojohaus.org/exec-maven-plugin/)
+
+@(Maven)[maven,manual]
 
 简化执行系统程序和 Java 程序的一个 Maven 插件
 

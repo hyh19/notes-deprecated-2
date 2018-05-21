@@ -1,4 +1,6 @@
-# Exec Maven Plugin Snippet
+# Exec Maven Plugin
+
+@(Maven)[maven,snippet]
 
 ```java
 package com.example;
