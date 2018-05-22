@@ -1,6 +1,8 @@
-[TOC]
-
 # [Maven Getting Started Guide](https://maven.apache.org/guides/getting-started/index.html)
+
+---
+
+[TOC]
 
 ## [How do I setup Maven?](https://maven.apache.org/guides/getting-started/index.html#How_do_I_setup_Maven)
 
@@ -100,6 +102,83 @@ my-app
 ```
 
 ## [How do I filter resource files?](https://maven.apache.org/guides/getting-started/index.html#How_do_I_filter_resource_files)
+
+在资源文件内引用 Maven 内部属性、外部文件属性、系统属性、命令行属性的值
+
+设置资源目录的 `</filtering>` 为 `true`，默认是 `false`。
+
+```xml
+<build>
+  <resources>
+    <resource>
+      <directory>src/main/resources</directory>
+      <filtering>true</filtering>
+    </resource>
+  </resources>
+</build>
+```
+
+- **引用 Maven 内部的属性值**
+
+```bash
+# application.properties
+application.name=${project.name}
+application.version=${project.version}
+```
+
+执行命令 `mvn process-resources` 检查效果
+
+查看文件 `target/classes/application.properties` 可知属性已替换为具体的值
+
+```bash
+# application.properties
+application.name=Maven Quick Start Archetype
+application.version=1.0-SNAPSHOT
+```
+
+- **引用外部文件定义的属性值**
+
+外部文件 `src/main/filters/filter.properties`
+
+```bash
+# filter.properties
+my.filter.value=hello!
+```
+
+在 `</filters>` 中加入外部文件
+
+```xml
+<build>
+  <filters>
+    <filter>src/main/filters/filter.properties</filter>
+  </filters>
+  <resources>
+    <resource>
+      <directory>src/main/resources</directory>
+      <filtering>true</filtering>
+    </resource>
+  </resources>
+</build>
+```
+
+```bash
+# application.properties
+application.name=${project.name}
+application.version=${project.version}
+message=${my.filter.value} # 引用外部文件的属性值
+```
+
+执行命令 `mvn process-resources`
+
+- **引用系统属性和命令行属性的值**
+
+```bash
+# application.properties
+java.version=${java.version} # 引用系统属性的值
+command.line.prop=${command.line.prop} # 引用命令行属性的值
+```
+
+执行命令 `mvn process-resources "-Dcommand.line.prop=hello again"`
 
 ## [How do I use external dependencies?](https://maven.apache.org/guides/getting-started/index.html#How_do_I_use_external_dependencies)
 

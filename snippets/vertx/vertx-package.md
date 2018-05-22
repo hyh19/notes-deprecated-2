@@ -4,6 +4,8 @@
 
 ## Maven
 
+打包
+
 ```xml
 <properties>
     <main.verticle>com.example.MainVerticle</main.verticle>
@@ -43,4 +45,51 @@
         </plugin>
     </plugins>
 </build>
+```
+
+运行
+
+```xml
+<plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>exec-maven-plugin</artifactId>
+    <version>1.4.0</version>
+    <executions>
+        <execution>
+            <id>main</id>
+            <goals>
+                <goal>java</goal>
+            </goals>
+            <configuration>
+                <mainClass>io.vertx.core.Launcher</mainClass>
+                <arguments>
+                    <argument>run</argument>
+                    <argument>${main.verticle}</argument>
+                </arguments>
+            </configuration>
+        </execution>
+        <execution>
+            <id>jar</id>
+            <goals>
+                <goal>exec</goal>
+            </goals>
+            <configuration>
+                <executable>java</executable>
+                <arguments>
+                    <argument>-jar</argument>
+                    <argument>target/${project.artifactId}-${project.version}-fat.jar</argument>
+                </arguments>
+            </configuration>
+        </execution>
+    </executions>
+```
+
+```bash
+# 运行 main 方法
+mvn exec:java@main
+
+# 打包
+mvn clean package
+# 运行 jar 包
+mvn exec:exec@jar
 ```
