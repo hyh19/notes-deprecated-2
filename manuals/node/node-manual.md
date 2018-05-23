@@ -16,6 +16,8 @@
 
 ### Linux Binaries
 
+推荐这种方式
+
 [node-install-bin.sh](https://github.com/mrhuangyuhui/node/blob/master/node-install-bin.sh)
 
 ```bash
@@ -24,9 +26,10 @@ yum install -y wget && curl -L https://github.com/mrhuangyuhui/node/raw/master/n
 
 ### [Package Manager](https://nodejs.org/en/download/package-manager/)
 
-https://github.com/nodesource/distributions
+<https://github.com/nodesource/distributions>
 
 [CentOS](https://nodejs.org/en/download/package-manager/#enterprise-linux-and-fedora)
+
 ```bash
 # 8.x
 curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
@@ -34,10 +37,18 @@ curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
 # 9.x
 curl --silent --location https://rpm.nodesource.com/setup_9.x | sudo bash -
 
-yum -y install nodejs gcc-c++ make
+yum -y install nodejs
+```
+
+epel
+
+```bash
+yum install -y epel-release
+yum install -y nodejs
 ```
 
 [Ubuntu](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
+
 ```bash
 # 8.x
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
@@ -45,26 +56,22 @@ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 # 9.x
 curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
 
-apt-get install -y nodejs build-essential
+apt-get install -y nodejs
 ```
 
-- **Version Manager**
+### Version Manager
 
-https://github.com/creationix/nvm ([NVM Practice](https://github.com/mrhuangyuhui/nvm))
+<https://github.com/creationix/nvm>
 
-https://github.com/marcelklehr/nodist
+相关笔记：NVM Manual
 
-https://github.com/tj/n
+### Source Code
 
-https://github.com/isaacs/nave
+<https://github.com/nodejs/node/blob/master/BUILDING.md#building-nodejs-on-supported-platforms>
 
-- **Source Code**
+### Docker Image
 
-https://github.com/nodejs/node/blob/master/BUILDING.md#building-nodejs-on-supported-platforms
-
-- **Docker Image**
-
-https://hub.docker.com/_/node/
+<https://hub.docker.com/_/node/>
 
 ## References
 
