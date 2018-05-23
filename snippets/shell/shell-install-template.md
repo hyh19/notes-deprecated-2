@@ -13,31 +13,31 @@ SOFTWARE_NAME=git
 SOFTWARE_VERSION=2.15.0
 
 # 压缩包名称
-ARCHIVE_NAME="${SOFTWARE_NAME}-${SOFTWARE_VERSION}.tar.gz"
+ARCHIVE_FILE_NAME="${SOFTWARE_NAME}-${SOFTWARE_VERSION}.tar.gz"
 
 # 压缩包下载地址
-ARCHIVE_DOWNLOAD_URL="https://www.kernel.org/pub/software/scm/git/${ARCHIVE_NAME}"
+ARCHIVE_FILE_DOWNLOAD_URL="https://www.kernel.org/pub/software/scm/git/${ARCHIVE_FILE_NAME}"
 
 # 压缩包解压后的目录名称
-SOURCE_DIR_NAME="${SOFTWARE_NAME}-${SOFTWARE_VERSION}"
+UNARCHIVE_DIR_NAME="${SOFTWARE_NAME}-${SOFTWARE_VERSION}"
 
 # 压缩包下载后的完整路径
-ARCHIVE_SAVE_PATH="${WORKING_DIR}/${ARCHIVE_NAME}"
+ARCHIVE_FILE_SAVE_PATH="${WORKING_DIR}/${ARCHIVE_FILE_NAME}"
 
 # 压缩包解压后的完整路径
-SOURCE_DIR="${WORKING_DIR}/${SOURCE_DIR_NAME}"
+UNARCHIVE_DIR_PATH="${WORKING_DIR}/${UNARCHIVE_DIR_NAME}"
 
-# 软件各个版本的根目录
-INSTALL_ROOT=/usr/local/${SOFTWARE_NAME}
+# 软件各个版本的安装根目录
+INSTALL_DIR_ROOT_PATH=/usr/local/${SOFTWARE_NAME}
 
 # 软件当前版本的安装目录
-INSTALL_DIR="${INSTALL_ROOT}/${SOFTWARE_NAME}-${SOFTWARE_VERSION}"
+INSTALL_DIR_CURRENT_PATH="${INSTALL_DIR_ROOT_PATH}/${SOFTWARE_NAME}-${SOFTWARE_VERSION}"
 
 # 软件当前版本的符号链接
-CURRENT_VERSION="${INSTALL_ROOT}/current"
+SYM_LINK="${INSTALL_DIR_ROOT_PATH}/current"
 
 # PATH 配置文件
-SOFTWARE_PROFILE="/etc/profile.d/${SOFTWARE_NAME}.sh"
+PATH_PROFILE="/etc/profile.d/${SOFTWARE_NAME}.sh"
 
 # 判断 Linux 发行版本的脚本
 CHECK_SYS_SCRIPT_NAME="check_sys.sh"
@@ -64,19 +64,19 @@ function install_dependencies_with_apt() {
 # 编译和安装
 function make_and_install() {
     # 创建安装目录
-    mkdir -p $INSTALL_DIR
+    mkdir -p $INSTALL_DIR_CURRENT_PATH
     # 进入解压目录
-    cd $SOURCE_DIR
+    cd $UNARCHIVE_DIR_PATH
 
     make configure
-    ./configure --prefix=$INSTALL_DIR
+    ./configure --prefix=$INSTALL_DIR_CURRENT_PATH
     make all doc info
     make install install-doc install-html install-info
 }
 
 # PATH 配置
 function config_binary_path() {
-    echo "export PATH=\${PATH}:${CURRENT_VERSION}/bin" > $SOFTWARE_PROFILE
+    echo "export PATH=\${PATH}:${SYM_LINK}/bin" > $PATH_PROFILE
 }
 
 # 进入工作目录
@@ -104,43 +104,43 @@ else
 fi
 
 # 下载压缩包
-if [ ! -e "$ARCHIVE_SAVE_PATH" ]; then
-    wget -O $ARCHIVE_SAVE_PATH $ARCHIVE_DOWNLOAD_URL
+if [ ! -e "$ARCHIVE_FILE_SAVE_PATH" ]; then
+    wget -O $ARCHIVE_FILE_SAVE_PATH $ARCHIVE_FILE_DOWNLOAD_URL
 fi
 
 # 下载失败，不再继续。
-if [ ! -e "$ARCHIVE_SAVE_PATH" ]; then
-    echo "[ERROR] Download ${ARCHIVE_NAME} failed."
+if [ ! -e "$ARCHIVE_FILE_SAVE_PATH" ]; then
+    echo "[ERROR] Download ${ARCHIVE_FILE_NAME} failed."
     exit 1
 fi
 
 # 备份旧的解压目录
-if [ -d "$SOURCE_DIR" ]; then
-    mv $SOURCE_DIR "${SOURCE_DIR}-$(date +%Y%m%d%H%M%S)"
+if [ -d "$UNARCHIVE_DIR_PATH" ]; then
+    mv $UNARCHIVE_DIR_PATH "${UNARCHIVE_DIR_PATH}-$(date +%Y%m%d%H%M%S)"
 fi
 
 # 备份旧的安装目录
-if [ -d "$INSTALL_DIR" ]; then
-    mv $INSTALL_DIR "${INSTALL_DIR}-$(date +%Y%m%d%H%M%S)"
+if [ -d "$INSTALL_DIR_CURRENT_PATH" ]; then
+    mv $INSTALL_DIR_CURRENT_PATH "${INSTALL_DIR_CURRENT_PATH}-$(date +%Y%m%d%H%M%S)"
 fi
 
 # 解压压缩包
-tar zxvf $ARCHIVE_SAVE_PATH
+tar zxvf $ARCHIVE_FILE_SAVE_PATH
 
 # 开始编译和安装
 make_and_install
 
 # 创建符号链接
-if [ -L "$CURRENT_VERSION" ]; then
-    rm -f $CURRENT_VERSION
+if [ -L "$SYM_LINK" ]; then
+    rm -f $SYM_LINK
 fi
 
-ln -s $INSTALL_DIR $CURRENT_VERSION
+ln -s $INSTALL_DIR_CURRENT_PATH $SYM_LINK
 
 # PATH 配置
 config_binary_path
 
 echo "################################################################################"
-echo "# Open a new terminal or enter: source ${SOFTWARE_PROFILE}"
+echo "# Open a new terminal or enter: source ${PATH_PROFILE}"
 echo "################################################################################"
 ```
