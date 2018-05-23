@@ -1,29 +1,28 @@
-# Node.js Practice
+# Node Manual
 
-https://nodejs.org/en/
+<https://nodejs.org/en/>
 
-## References
+---
 
-https://nodejs.org/dist/latest-v8.x/docs/api/
-
-https://www.w3schools.com/nodejs/ref_modules.asp
+[TOC]
 
 ## Installation
 
 [Downloads](https://nodejs.org/en/download/)
 
-[All download options](https://nodejs.org/dist/v8.9.1/)
+[All download options](https://nodejs.org/dist/)
 
 [Previous Releases](https://nodejs.org/en/download/releases/)
 
-- **Linux Binaries (x86/x64)**
+### Linux Binaries
 
-[install-nodejs-bin.sh](https://github.com/mrhuangyuhui/nodejs/blob/master/install-nodejs-bin.sh)
+[node-install-bin.sh](https://github.com/mrhuangyuhui/node/blob/master/node-install-bin.sh)
+
 ```bash
-curl -L https://github.com/mrhuangyuhui/nodejs/raw/master/install-nodejs-bin.sh | bash
+yum install -y wget && curl -L https://github.com/mrhuangyuhui/node/raw/master/node-install-bin.sh | bash
 ```
 
-- **[Package Manager](https://nodejs.org/en/download/package-manager/)**
+### [Package Manager](https://nodejs.org/en/download/package-manager/)
 
 https://github.com/nodesource/distributions
 
@@ -67,6 +66,12 @@ https://github.com/nodejs/node/blob/master/BUILDING.md#building-nodejs-on-suppor
 
 https://hub.docker.com/_/node/
 
+## References
+
+https://nodejs.org/dist/latest-v8.x/docs/api/
+
+https://www.w3schools.com/nodejs/ref_modules.asp
+
 ## Tutorials
 
 https://www.w3schools.com/nodejs/
@@ -76,7 +81,3 @@ https://www.w3schools.com/nodejs/
 https://runkit.com/
 
 https://www.npmjs.com/package/nodemon
-
-## 学习进度
-
-http://www.runoob.com/nodejs/nodejs-stream.html
