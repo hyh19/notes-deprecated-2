@@ -75,16 +75,22 @@ apt-get install -y nodejs
 
 ## References
 
-https://nodejs.org/dist/latest-v8.x/docs/api/
+[Node.js v8.11.2 Documentation](https://nodejs.org/dist/latest-v8.x/docs/api/)
 
-https://www.w3schools.com/nodejs/ref_modules.asp
+[Node.js Built-in Modules](https://www.w3schools.com/nodejs/ref_modules.asp)
 
 ## Tutorials
 
-https://www.w3schools.com/nodejs/
+[Learn Node.js](https://www.w3schools.com/nodejs/)
 
 ## Tools
 
-https://runkit.com/
+### [nodemon](https://www.npmjs.com/package/nodemon)
 
-https://www.npmjs.com/package/nodemon
+开发时使用的工具，可检测文件变化并自动重启程序。
+
+<https://github.com/remy/nodemon>
+
+### [runkit](https://runkit.com/)
+
+在线 IDE
