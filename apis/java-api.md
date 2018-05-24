@@ -50,10 +50,11 @@
 
 ## `java.util.*`
 
-### java.util [>>](https://docs.oracle.com/javase/8/docs/api/java/util/package-summary.html)
+### [`java.util`](https://docs.oracle.com/javase/8/docs/api/java/util/package-summary.html)
 
 - [Interface Collection<E>](https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html)
 - [Interface Comparator<T>](https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html)
+- [Class Date](https://docs.oracle.com/javase/8/docs/api/java/util/Date.html)
 - [Class Hashtable<K,V>](https://docs.oracle.com/javase/8/docs/api/java/util/Hashtable.html)
 - [Class Scanner](https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html)
 
