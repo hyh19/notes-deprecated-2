@@ -1,8 +1,10 @@
-[toc]
+# [Java SE 8 API Documentation](https://docs.oracle.com/javase/8/docs/api/index.html)
 
-# Java SE 8 API Documentation [>>](https://docs.oracle.com/javase/8/docs/api/index.html)
+[All Classes](https://docs.oracle.com/javase/8/docs/api/allclasses-frame.html)
 
-## All Classes [>>](https://docs.oracle.com/javase/8/docs/api/allclasses-frame.html)
+---
+
+[TOC]
 
 ## `java.io.*`
 
@@ -41,6 +43,10 @@
 ### `java.net` [>>](https://docs.oracle.com/javase/8/docs/api/java/net/package-summary.html)
 
 - [Class URL](https://docs.oracle.com/javase/8/docs/api/java/net/URL.html)
+
+## [`java.text`](https://docs.oracle.com/javase/8/docs/api/java/text/package-summary.html)
+
+- [Class SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)
 
 ## `java.util.*`
 
