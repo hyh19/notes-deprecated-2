@@ -2,6 +2,12 @@
 
 <https://nodejs.org/en/>
 
+<https://www.npmjs.com/>
+
+<https://npm.taobao.org/>
+
+<https://npm.runkit.com/>
+
 ---
 
 [TOC]
@@ -75,9 +81,19 @@ apt-get install -y nodejs
 
 ## References
 
-[Node.js v8.11.2 Documentation](https://nodejs.org/dist/latest-v8.x/docs/api/)
+[Node API](https://nodejs.org/dist/latest-v8.x/docs/api/)
 
 [Node.js Built-in Modules](https://www.w3schools.com/nodejs/ref_modules.asp)
+
+## Packages
+
+### [nodemon](https://www.npmjs.com/package/nodemon)
+
+开发工具，可检测文件变化并自动重启程序。
+
+<https://github.com/remy/nodemon>
+
+在线体验 <https://npm.runkit.com/nodemon>
 
 ## Tutorials
 
@@ -85,12 +101,8 @@ apt-get install -y nodejs
 
 ## Tools
 
-### [nodemon](https://www.npmjs.com/package/nodemon)
-
-开发时使用的工具，可检测文件变化并自动重启程序。
-
-<https://github.com/remy/nodemon>
-
 ### [runkit](https://runkit.com/)
 
-在线 IDE
+在线 node 环境
+
+在线体验 node package <https://npm.runkit.com/>

@@ -1,12 +1,24 @@
-# NPM Practice
+# NPM Manual
 
-https://www.npmjs.com/
+TODO
+
+<https://www.npmjs.com/>
+
+<https://npm.taobao.org/>
+
+<https://npm.runkit.com/>
 
 ## [CNPM](https://npm.taobao.org/)
+
+淘宝 NPM 镜像
+
+配置淘宝镜像
 
 ```bash
 npm config set registry https://registry.npm.taobao.org -g
 ```
+
+安装 `cnpm`
 
 ```bash
 npm install -g cnpm --registry=https://registry.npm.taobao.org
@@ -132,4 +144,3 @@ npm uninstall -g jshint
 [main](https://docs.npmjs.com/files/package.json#main) \
 [repository](https://docs.npmjs.com/files/package.json#repository) \
 [scripts](https://docs.npmjs.com/files/package.json#scripts)
-
