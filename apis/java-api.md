@@ -1,8 +1,10 @@
-[toc]
+# [Java SE 8 API Documentation](https://docs.oracle.com/javase/8/docs/api/index.html)
 
-# Java SE 8 API Documentation [>>](https://docs.oracle.com/javase/8/docs/api/index.html)
+[All Classes](https://docs.oracle.com/javase/8/docs/api/allclasses-frame.html)
 
-## All Classes [>>](https://docs.oracle.com/javase/8/docs/api/allclasses-frame.html)
+---
+
+[TOC]
 
 ## `java.io.*`
 
@@ -42,12 +44,17 @@
 
 - [Class URL](https://docs.oracle.com/javase/8/docs/api/java/net/URL.html)
 
+## [`java.text`](https://docs.oracle.com/javase/8/docs/api/java/text/package-summary.html)
+
+- [Class SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)
+
 ## `java.util.*`
 
-### java.util [>>](https://docs.oracle.com/javase/8/docs/api/java/util/package-summary.html)
+### [`java.util`](https://docs.oracle.com/javase/8/docs/api/java/util/package-summary.html)
 
 - [Interface Collection<E>](https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html)
 - [Interface Comparator<T>](https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html)
+- [Class Date](https://docs.oracle.com/javase/8/docs/api/java/util/Date.html)
 - [Class Hashtable<K,V>](https://docs.oracle.com/javase/8/docs/api/java/util/Hashtable.html)
 - [Class Scanner](https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html)
 
