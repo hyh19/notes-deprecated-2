@@ -1,5 +1,7 @@
 # Node Manual
 
+@(Node)[node,manual]
+
 <https://nodejs.org/en/>
 
 <https://www.npmjs.com/>
@@ -84,16 +86,6 @@ apt-get install -y nodejs
 [Node API](https://nodejs.org/dist/latest-v8.x/docs/api/)
 
 [Node.js Built-in Modules](https://www.w3schools.com/nodejs/ref_modules.asp)
-
-## Packages
-
-### [nodemon](https://www.npmjs.com/package/nodemon)
-
-开发工具，可检测文件变化并自动重启程序。
-
-<https://github.com/remy/nodemon>
-
-在线体验 <https://npm.runkit.com/nodemon>
 
 ## Tutorials
 

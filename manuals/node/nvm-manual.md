@@ -1,5 +1,7 @@
 # NVM Manual
 
+@(Node)[node,manual]
+
 <https://github.com/creationix/nvm>
 
 ---
