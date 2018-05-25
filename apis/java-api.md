@@ -1,4 +1,4 @@
-# [Java SE 8 API Documentation](https://docs.oracle.com/javase/8/docs/api/index.html)
+# [Java API](https://docs.oracle.com/javase/8/docs/api/index.html)
 
 [All Classes](https://docs.oracle.com/javase/8/docs/api/allclasses-frame.html)
 
@@ -54,6 +54,7 @@
 
 - [Interface Collection<E>](https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html)
 - [Interface Comparator<T>](https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html)
+- [Class Calendar](https://docs.oracle.com/javase/8/docs/api/java/util/Calendar.html)
 - [Class Date](https://docs.oracle.com/javase/8/docs/api/java/util/Date.html)
 - [Class Hashtable<K,V>](https://docs.oracle.com/javase/8/docs/api/java/util/Hashtable.html)
 - [Class Scanner](https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html)
