@@ -2,7 +2,7 @@
 
 ## 7.1　Spring Boot的Web开发支持
 
-N/A
+n/a
 
 ## 7.2　Thymeleaf模板引擎
 
@@ -198,7 +198,7 @@ public class Ch72Application {
 
 ### 7.4.1　配置Tomcat
 
-N/A
+n/a
 
 ### 7.4.2　代码配置Tomcat
 

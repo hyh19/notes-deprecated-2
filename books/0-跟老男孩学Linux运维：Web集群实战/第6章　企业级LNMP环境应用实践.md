@@ -6,7 +6,7 @@
 
 ### 6.1.1　LNMP介绍
 
-N/A
+n/a
 
 ### 6.1.2　LNMP组合工作流程
 
@@ -20,15 +20,15 @@ N/A
 
 ### 6.3.1　什么是CGI
 
-N/A
+n/a
 
 ### 6.3.2　什么是FastCGI
 
-N/A
+n/a
 
 ### 6.3.3　Nginx FastCGI的运行原理
 
-N/A
+n/a
 
 ## 6.4　LNMP之PHP（FastCGI方式）服务的安装准备
 

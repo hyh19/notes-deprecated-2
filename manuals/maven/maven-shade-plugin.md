@@ -1,12 +1,16 @@
 # [Apache Maven Shade Plugin](http://maven.apache.org/plugins/maven-shade-plugin/)
 
+@(Maven)[maven,manual]
+
+把代码及其依赖打进一个 `jar` 包的插件
+
 ---
 
 [TOC]
 
 ## [Usage](http://maven.apache.org/plugins/maven-shade-plugin/usage.html)
 
-### Configuring Your Shade Plugin
+配置
 
 ```xml
 <project>
@@ -34,6 +38,21 @@
   ...
 </project>
 ```
+
+打包
+
+```bash
+mvn package
+```
+
+## [Goals](http://maven.apache.org/plugins/maven-shade-plugin/plugin-info.html)
+
+### [`shade:shade`](http://maven.apache.org/plugins/maven-shade-plugin/shade-mojo.html)
+
+配置参数 | 说明
+--- | ---
+[`outputFile`](http://maven.apache.org/plugins/maven-shade-plugin/shade-mojo.html#outputFile) | 包的保存路径
+[`transformers`](http://maven.apache.org/plugins/maven-shade-plugin/shade-mojo.html#transformers) | 资源转换器
 
 ## Examples
 

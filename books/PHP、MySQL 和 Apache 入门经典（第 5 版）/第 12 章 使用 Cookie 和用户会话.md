@@ -4,7 +4,7 @@
 
 ## 12.1 Cookie 简介
 
-N/A
+n/a
 
 ## 12.2 使用 PHP 设置一个 cookie
 
@@ -56,7 +56,7 @@ setcookie("vagetable", "artichoke", time()-60, "/", "localhost", 0);
 
 ## 12.3 会话函数概览
 
-N/A
+n/a
 
 ## 12.4 开始一个会话
 
@@ -285,7 +285,7 @@ session_destroy();
 
 ## 12.7 在一个带有注册用户的环境中使用会话
 
-N/A
+n/a
 
 学习结束
 
