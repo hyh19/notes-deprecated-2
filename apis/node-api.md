@@ -16,6 +16,10 @@
 - [response.write](https://nodejs.org/api/http.html#http_response_write_chunk_encoding_callback)
 - [response.writeHead](https://nodejs.org/api/http.html#http_response_writehead_statuscode_statusmessage_headers)
 
+### [Class: http.IncomingMessage](https://nodejs.org/api/http.html#http_class_http_incomingmessage)
+
+- [message.url](https://nodejs.org/api/http.html#http_message_url)
+
 ### [http.createServer](https://nodejs.org/api/http.html#http_http_createserver_options_requestlistener)
 
 ## [Modules](https://nodejs.org/api/modules.html)
