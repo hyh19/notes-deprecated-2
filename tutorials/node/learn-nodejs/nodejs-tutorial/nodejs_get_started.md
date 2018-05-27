@@ -16,15 +16,3 @@ node server.js
 ```
 
 在浏览器打开 <http://localhost:8080/>
-
-API
-
-- [module.require(id)](https://nodejs.org/api/modules.html#modules_module_require_id)
-- [HTTP](https://nodejs.org/api/http.html#http_http)
-- [http.createServer([requestListener])](https://nodejs.org/api/http.html#http_http_createserver_requestlistener)
-- [Class: http.Server](https://nodejs.org/api/http.html#http_class_http_server)
-- [server.listen([port][, host][, backlog][, callback])](https://nodejs.org/api/net.html#net_server_listen_port_host_backlog_callback)
-- [Class: http.ServerResponse](https://nodejs.org/api/http.html#http_class_http_serverresponse)
-- [response.writeHead(statusCode[, statusMessage][, headers])](https://nodejs.org/api/http.html#http_response_writehead_statuscode_statusmessage_headers)
-- [response.end([data][, encoding][, callback])](https://nodejs.org/api/http.html#http_response_end_data_encoding_callback)
-- [Event: 'request'](https://nodejs.org/api/http.html#http_event_request)

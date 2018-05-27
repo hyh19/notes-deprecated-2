@@ -1,6 +1,5 @@
 # [Node.js HTTP Module](https://www.w3schools.com/nodejs/nodejs_http.asp)
 
-`./server.js`
 ```javascript
 var http = require('http');
 
@@ -10,12 +9,13 @@ http.createServer(function (req, res) {
 }).listen(8080);
 ```
 
+添加请求头
+
 ```bash
-node server.js
+var http = require('http');
+http.createServer(function (req, res) {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.write('Hello World!');
+    res.end();
+}).listen(8080);
 ```
-
-http://localhost:8080
-
-**API**
-
-[response.write(chunk[, encoding][, callback])](https://nodejs.org/api/http.html#http_response_write_chunk_encoding_callback)
