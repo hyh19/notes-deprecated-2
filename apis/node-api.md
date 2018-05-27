@@ -4,32 +4,66 @@
 
 [TOC]
 
+## [File System](https://nodejs.org/api/fs.html)
+
+```javascript
+const fs = require('fs')
+```
+
+- [fs.readFile](https://nodejs.org/api/fs.html#fs_fs_readfile_path_options_callback)
+
 ## [HTTP](https://nodejs.org/api/http.html)
 
-### [Class: http.Server](https://nodejs.org/api/http.html#http_class_http_server)
+```javascript
+const http = require('http')
+```
 
-- [Event: 'request'](https://nodejs.org/api/http.html#http_event_request)
+- [Class: http.Server](https://nodejs.org/api/http.html#http_class_http_server)
 
-### [Class: http.ServerResponse](https://nodejs.org/api/http.html#http_class_http_serverresponse)
+  - [Event: 'request'](https://nodejs.org/api/http.html#http_event_request)
 
-- [response.end](https://nodejs.org/api/http.html#http_response_end_data_encoding_callback)
-- [response.write](https://nodejs.org/api/http.html#http_response_write_chunk_encoding_callback)
-- [response.writeHead](https://nodejs.org/api/http.html#http_response_writehead_statuscode_statusmessage_headers)
+- [Class: http.ServerResponse](https://nodejs.org/api/http.html#http_class_http_serverresponse)
 
-### [Class: http.IncomingMessage](https://nodejs.org/api/http.html#http_class_http_incomingmessage)
+  - [response.end](https://nodejs.org/api/http.html#http_response_end_data_encoding_callback)
+  - [response.write](https://nodejs.org/api/http.html#http_response_write_chunk_encoding_callback)
+  - [response.writeHead](https://nodejs.org/api/http.html#http_response_writehead_statuscode_statusmessage_headers)
 
-- [message.url](https://nodejs.org/api/http.html#http_message_url)
+- [Class: http.IncomingMessage](https://nodejs.org/api/http.html#http_class_http_incomingmessage)
 
-### [http.createServer](https://nodejs.org/api/http.html#http_http_createserver_options_requestlistener)
+  - [message.url](https://nodejs.org/api/http.html#http_message_url)
+
+- [http.createServer](https://nodejs.org/api/http.html#http_http_createserver_options_requestlistener)
 
 ## [Modules](https://nodejs.org/api/modules.html)
 
-### [The module scope](https://nodejs.org/api/modules.html#modules_the_module_scope)
+- [The module scope](https://nodejs.org/api/modules.html#modules_the_module_scope)
 
-- [require](https://nodejs.org/api/modules.html#modules_require)
+  - [require](https://nodejs.org/api/modules.html#modules_require)
 
 ## [Net](https://nodejs.org/api/net.html)
 
-### [Class: net.Server](https://nodejs.org/api/net.html#net_class_net_server)
+```javascript
+const net = require('net')
+```
 
-- [server.listen](https://nodejs.org/api/net.html#net_server_listen)
+- [Class: net.Server](https://nodejs.org/api/net.html#net_class_net_server)
+
+  - [server.listen](https://nodejs.org/api/net.html#net_server_listen)
+
+## [URL](https://nodejs.org/api/url.html)
+
+```javascript
+const url = require('url');
+```
+
+- The WHATWG URL API
+
+  - [Class: URL](https://nodejs.org/api/url.html#url_class_url)
+
+- Legacy URL API
+
+  - Legacy urlObject
+
+    - [urlObject.query](https://nodejs.org/api/url.html#url_urlobject_query)
+
+  - [url.parse](https://nodejs.org/api/url.html#url_url_parse_urlstring_parsequerystring_slashesdenotehost)
