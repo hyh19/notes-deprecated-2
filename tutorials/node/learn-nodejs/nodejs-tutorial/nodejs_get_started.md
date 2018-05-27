@@ -15,4 +15,4 @@ http.createServer(function (req, res) {
 node server.js
 ```
 
-在浏览器打开 <http://localhost:8080/>
+打开 <http://localhost:8080/>

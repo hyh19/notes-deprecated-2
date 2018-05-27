@@ -4,7 +4,7 @@
 
 ## 3.1 介绍学习案例
 
-N/A
+n/a
 
 ## 3.2 构建 Java 项目
 
@@ -118,7 +118,7 @@ task runWithJavaExec(type: JavaExec) {
 
 ### 3.3.1 添加 Web 组件
 
-N/A
+n/a
 
 ### 3.3.2 使用 War 和 Jetty 插件
 

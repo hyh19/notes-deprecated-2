@@ -125,11 +125,11 @@
 
 ### 5.1.1 Spring 容器高层视图
 
-N/A
+n/a
 
 ### 5.1.2 基于 XML 配置
 
-N/A
+n/a
 
 ## 5.2 Bean 基本配置
 
@@ -202,7 +202,7 @@ public class TestBeanRetrieve {
 
 ### 5.2.2 Bean 的命名
 
-N/A
+n/a
 
 ## 5.3 依赖注入
 

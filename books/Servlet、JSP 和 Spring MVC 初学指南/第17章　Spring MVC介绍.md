@@ -4,7 +4,7 @@
 
 ## 17.1　采用Spring MVC的好处
 
-N/A
+n/a
 
 ## 17.2　Spring MVC的DispatcherServlet
 
@@ -42,7 +42,7 @@ Spring MVC 的配置文件默认在 `WEB-INF` 目录下，命名规则为：`ser
 
 ## 17.3　Controller接口
 
-N/A
+n/a
 
 ## 17.4　第一个Spring MVC应用
 

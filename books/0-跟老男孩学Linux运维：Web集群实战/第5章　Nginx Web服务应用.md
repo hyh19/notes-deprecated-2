@@ -4,11 +4,11 @@
 
 ## 5.1　Nginx介绍
 
-N/A
+n/a
 
 ## 5.2　Nginx Web服务
 
-N/A
+n/a
 
 ## 5.3　编译安装Nginx
 
@@ -18,7 +18,7 @@ http://note.youdao.com/noteshare?id=a3e42a3ca5efee2dff6c05cac0f451b4
 
 ## 5.4　Nginx技术的深入剖析
 
-N/A
+n/a
 
 ## 5.5　Nginx虚拟主机配置实战
 
@@ -229,7 +229,7 @@ blog.etiantian.org
 
 ### 5.6.1　规范优化Nginx配置文件
 
-N/A
+n/a
 
 ### 5.6.2　Nginx虚拟主机的别名配置
 
@@ -329,7 +329,7 @@ server {
 
 ### 5.7.3　访问日志配置说明
 
-N/A
+n/a
 
 ### 5.7.4　访问日志配置实战
 
@@ -398,15 +398,15 @@ server {
 
 ### 5.9.1　什么是Nginx rewrite？
 
-N/A
+n/a
 
 ### 5.9.2　Nginx rewrite语法
 
-N/A
+n/a
 
 ### 5.9.3　Nginx rewrite的企业应用场景
 
-N/A
+n/a
 
 ### 5.9.4　Nginx rewrite 301跳转
 
@@ -519,4 +519,4 @@ chown nginx /etc/nginx/htpasswd
 
 ## 5.11　Nginx相关问题的解答
 
-N/A
+n/a

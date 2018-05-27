@@ -18,47 +18,48 @@ console.log(qdata.year);
 console.log(qdata.month);
 ```
 
-**API**
+输出结果
 
-[URL](https://nodejs.org/dist/latest-v8.x/docs/api/url.html)
-
-[The WHATWG URL API](https://nodejs.org/dist/latest-v8.x/docs/api/url.html#url_the_whatwg_url_api)
-
-[Legacy URL API](https://nodejs.org/dist/latest-v8.x/docs/api/url.html#url_legacy_url_api)
-
-[Legacy urlObject](https://nodejs.org/dist/latest-v8.x/docs/api/url.html#url_legacy_urlobject)
+```bash
+$ node server.js
+localhost:8080
+/default.htm
+?year=2017&month=february
+{ year: '2017', month: 'february' }
+2017
+february
+```
 
 ## Node.js File Server
 
-`./summer.html`
+`summer.html`
+
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-    <title></title>
-</head>
+
 <body>
     <h1>Summer</h1>
     <p>I love the sun!</p>
 </body>
+
 </html>
 ```
 
-`./winter.html`
+`winter.html`
+
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-    <title></title>
-</head>
+
 <body>
     <h1>Winter</h1>
     <p>I love the snow!</p>
 </body>
+
 </html>
 ```
 
-`./server.js`
 ```javascript
 var http = require('http');
 var url = require('url');
@@ -69,26 +70,52 @@ http.createServer(function (req, res) {
     var filename = '.' + q.pathname;
     fs.readFile(filename, function (err, data) {
         if (err) {
-            res.writeHead(404, {'Content-Type': 'text/html'});
+            res.writeHead(404, { 'Content-Type': 'text/html' });
             return res.end('404 Not Found');
         }
-        res.writeHead(200, {'Content-Type': 'text/html'});
+        res.writeHead(200, { 'Content-Type': 'text/html' });
         res.write(data);
         return res.end();
     });
 }).listen(8080);
 ```
 
-```bash
-node server.js
+打开 <http://localhost:8080>
+
+输出结果
+
+```html
+404 Not Found
 ```
 
-http://localhost:8080
+打开 <http://localhost:8080/summer.html>
 
-http://localhost:8080/summer.html
+输出结果
 
-http://localhost:8080/winter.html
+```html
+<!DOCTYPE html>
+<html>
 
-**API**
+<body>
+    <h1>Summer</h1>
+    <p>I love the sun!</p>
+</body>
 
-[message.url](https://nodejs.org/dist/latest-v8.x/docs/api/http.html#http_message_url)
+</html>
+```
+
+打开 <http://localhost:8080/winter.html>
+
+输出结果
+
+```html
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1>Winter</h1>
+    <p>I love the snow!</p>
+</body>
+
+</html>
+```

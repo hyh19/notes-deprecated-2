@@ -16,19 +16,17 @@ http.createServer(function (req, res) {
             var oldpath = files.filetoupload.path;
             var newpath = '/tmp/' + files.filetoupload.name;
             fs.rename(oldpath, newpath, function (err) {
-                if (err) {
-                    throw err;
-                }
-                res.write('File uploaded');
+                if (err) throw err;
+                res.write('File uploaded and moved!');
                 res.end();
             });
-        })
+        });
     } else {
-        res.writeHead(200, {'Content-Type': 'text/html'});
+        res.writeHead(200, { 'Content-Type': 'text/html' });
         res.write('<form action="fileupload" method="post" enctype="multipart/form-data">');
         res.write('<input type="file" name="filetoupload"><br>');
         res.write('<input type="submit">');
-        res.write('<form>');
+        res.write('</form>');
         return res.end();
     }
 }).listen(8080);
@@ -37,9 +35,3 @@ http.createServer(function (req, res) {
 ```bash
 node server.js
 ```
-
-**API**
-
-[formidable](https://www.npmjs.com/package/formidable)
-
-[fs.rename(oldPath, newPath, callback)](https://nodejs.org/dist/latest-v8.x/docs/api/fs.html#fs_fs_rename_oldpath_newpath_callback)

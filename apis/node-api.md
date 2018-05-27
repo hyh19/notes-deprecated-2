@@ -1,16 +1,23 @@
 # [Node API](https://nodejs.org/api/)
 
+@(Node)[node,api]
+
 ---
 
 [TOC]
 
+## [Events](https://nodejs.org/api/events.html)
+
+- [Class: EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)
+  - [emitter.emit](https://nodejs.org/api/events.html#events_emitter_emit_eventname_args)
+  - [emitter.on](https://nodejs.org/api/events.html#events_emitter_on_eventname_listener)
+
 ## [File System](https://nodejs.org/api/fs.html)
 
-```javascript
-const fs = require('fs')
-```
-
+- [Class: fs.ReadStream](https://nodejs.org/api/fs.html#fs_class_fs_readstream)
+  - [Event: 'open'](https://nodejs.org/api/fs.html#fs_event_open)
 - [fs.appendFile](https://nodejs.org/api/fs.html#fs_fs_appendfile_path_data_options_callback)
+- [fs.createReadStream](https://nodejs.org/api/fs.html#fs_fs_createreadstream_path_options)
 - [fs.open](https://nodejs.org/api/fs.html#fs_fs_open_path_flags_mode_callback)
 - [fs.readFile](https://nodejs.org/api/fs.html#fs_fs_readfile_path_options_callback)
 - [fs.rename](https://nodejs.org/api/fs.html#fs_fs_rename_oldpath_newpath_callback)
@@ -18,10 +25,6 @@ const fs = require('fs')
 - [fs.writeFile](https://nodejs.org/api/fs.html#fs_fs_writefile_file_data_options_callback)
 
 ## [HTTP](https://nodejs.org/api/http.html)
-
-```javascript
-const http = require('http')
-```
 
 - [Class: http.Server](https://nodejs.org/api/http.html#http_class_http_server)
   - [Event: 'request'](https://nodejs.org/api/http.html#http_event_request)
@@ -41,22 +44,23 @@ const http = require('http')
 
 ## [Net](https://nodejs.org/api/net.html)
 
-```javascript
-const net = require('net')
-```
-
 - [Class: net.Server](https://nodejs.org/api/net.html#net_class_net_server)
   - [server.listen](https://nodejs.org/api/net.html#net_server_listen)
 
-## [URL](https://nodejs.org/api/url.html)
+## [Stream](https://nodejs.org/api/stream.html)
 
-```javascript
-const url = require('url');
-```
+- API for Stream Consumers
+  - [Readable Streams](https://nodejs.org/api/stream.html#stream_readable_streams)
+    - [Class: stream.Readable](https://nodejs.org/api/stream.html#stream_class_stream_readable)
+
+## [URL](https://nodejs.org/api/url.html)
 
 - The WHATWG URL API
   - [Class: URL](https://nodejs.org/api/url.html#url_class_url)
 - Legacy URL API
-  - Legacy urlObject
+  - [Legacy urlObject](https://nodejs.org/api/url.html#url_legacy_urlobject)
+    - [urlObject.host](https://nodejs.org/api/url.html#url_urlobject_host)
+    - [urlObject.pathname](https://nodejs.org/api/url.html#url_urlobject_pathname)
     - [urlObject.query](https://nodejs.org/api/url.html#url_urlobject_query)
+    - [urlObject.search](https://nodejs.org/api/url.html#url_urlobject_search)
   - [url.parse](https://nodejs.org/api/url.html#url_url_parse_urlstring_parsequerystring_slashesdenotehost)

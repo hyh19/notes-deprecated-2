@@ -536,4 +536,4 @@ public class HelloWorld {
 
 ## 3.9　数学中的类似思想
 
-N/A
+n/a

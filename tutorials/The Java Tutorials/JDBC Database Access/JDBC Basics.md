@@ -7,7 +7,7 @@ https://docs.oracle.com/javase/tutorial/jdbc/basics/index.html
 ## Getting Started
 https://docs.oracle.com/javase/tutorial/jdbc/basics/gettingstarted.html
 
-N/A
+n/a
 
 ## Processing SQL Statements with JDBC
 https://docs.oracle.com/javase/tutorial/jdbc/basics/processingsqlstatements.html
@@ -57,17 +57,17 @@ https://docs.oracle.com/javase/tutorial/jdbc/basics/connecting.html
 ### Connecting with DataSource Objects
 https://docs.oracle.com/javase/tutorial/jdbc/basics/sqldatasources.html
 
-N/A
+n/a
 
 ### Handling SQLExceptions
 https://docs.oracle.com/javase/tutorial/jdbc/basics/sqlexception.html
 
-N/A
+n/a
 
 ### Setting Up Tables
 https://docs.oracle.com/javase/tutorial/jdbc/basics/tables.html
 
-N/A
+n/a
 
 ### Retrieving and Modifying Values from Result Sets
 https://docs.oracle.com/javase/tutorial/jdbc/basics/retrieving.html
@@ -101,12 +101,12 @@ https://docs.oracle.com/javase/tutorial/jdbc/basics/retrieving.html
 ### Using Prepared Statements
 https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html
 
-N/A
+n/a
 
 ### Using Transactions
 https://docs.oracle.com/javase/tutorial/jdbc/basics/transactions.html
 
-N/A
+n/a
 
 ## Using RowSet Objects
 https://docs.oracle.com/javase/tutorial/jdbc/basics/rowset.html
