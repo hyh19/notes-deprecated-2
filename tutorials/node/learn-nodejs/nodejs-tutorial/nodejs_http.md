@@ -31,9 +31,7 @@ http.createServer(function (req, res) {
 }).listen(8080);
 ```
 
-在浏览器打开
-
-- <http://localhost:8080/summer>
+打开 <http://localhost:8080/summer>
 
 输出结果
 
@@ -41,7 +39,7 @@ http.createServer(function (req, res) {
 /summer
 ```
 
-- <http://localhost:8080/winter>
+打开 <http://localhost:8080/winter>
 
 输出结果
 
@@ -63,7 +61,7 @@ http.createServer(function (req, res) {
 }).listen(8080);
 ```
 
-在浏览器打开 <http://localhost:8080/?year=2017&month=July>
+打开 <http://localhost:8080/?year=2017&month=July>
 
 输出结果
 

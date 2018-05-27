@@ -57,6 +57,9 @@ const url = require('url');
 - The WHATWG URL API
   - [Class: URL](https://nodejs.org/api/url.html#url_class_url)
 - Legacy URL API
-  - Legacy urlObject
+  - [Legacy urlObject](https://nodejs.org/api/url.html#url_legacy_urlobject)
+    - [urlObject.host](https://nodejs.org/api/url.html#url_urlobject_host)
+    - [urlObject.pathname](https://nodejs.org/api/url.html#url_urlobject_pathname)
     - [urlObject.query](https://nodejs.org/api/url.html#url_urlobject_query)
+    - [urlObject.search](https://nodejs.org/api/url.html#url_urlobject_search)
   - [url.parse](https://nodejs.org/api/url.html#url_url_parse_urlstring_parsequerystring_slashesdenotehost)
