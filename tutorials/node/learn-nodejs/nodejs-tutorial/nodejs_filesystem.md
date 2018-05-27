@@ -42,3 +42,78 @@ http.createServer(function (req, res) {
 
 </html>
 ```
+
+## Create Files
+
+追加内容到文件尾部
+
+```javascript
+var fs = require('fs');
+
+fs.appendFile('mynewfile1.txt', 'Hello content!', function (err) {
+    if (err) throw err;
+    console.log('Saved!');
+});
+```
+
+打开文件
+
+```javascript
+var fs = require('fs');
+
+fs.open('mynewfile2.txt', 'w', function (err, file) {
+    if (err) throw err;
+    console.log('Saved!');
+});
+```
+
+清空内容并写入新的
+
+```javascript
+var fs = require('fs');
+
+fs.writeFile('mynewfile3.txt', 'Hello content!', function (err) {
+    if (err) throw err;
+    console.log('Saved!');
+});
+```
+
+## Update Files
+
+```javascript
+var fs = require('fs');
+
+fs.appendFile('mynewfile1.txt', ' This is my text.', function (err) {
+    if (err) throw err;
+    console.log('Updated!');
+});
+```
+
+```javascript
+var fs = require('fs');
+
+fs.writeFile('mynewfile3.txt', 'This is my text', function (err) {
+    if (err) throw err;
+    console.log('Replaced!');
+});
+```
+
+## Delete Files
+
+```javascript
+var fs = require('fs');
+
+fs.unlink('mynewfile2.txt', function (err) {
+    if (err) throw err;
+    console.log('File deleted!');
+});
+```
+
+```javascript
+var fs = require('fs');
+
+fs.rename('mynewfile1.txt', 'myrenamedfile.txt', function (err) {
+    if (err) throw err;
+    console.log('File Renamed!');
+});
+```
