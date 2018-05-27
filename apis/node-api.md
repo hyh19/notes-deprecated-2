@@ -1,5 +1,7 @@
 # [Node API](https://nodejs.org/api/)
 
+@(Node)[node,api]
+
 ---
 
 [TOC]

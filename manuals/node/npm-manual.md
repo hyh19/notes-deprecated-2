@@ -114,6 +114,10 @@ npm init -y
 
 ## Packages
 
+### [formidable](https://www.npmjs.com/package/formidable)
+
+解析表单，特别是文件上传。
+
 ### [nodemon](https://www.npmjs.com/package/nodemon)
 
 开发工具，可检测文件变化并自动重启程序。
