@@ -6,15 +6,15 @@
 
 ### 12.1.1　Keepalived介绍
 
-N/A
+n/a
 
 ### 12.1.2　Keepalived服务的三个重要功能
 
-N/A
+n/a
 
 ### 12.1.3　Keepalived高可用故障切换转移原理
 
-N/A
+n/a
 
 ## 12.2　Keepalived高可用服务搭建准备
 
@@ -168,7 +168,7 @@ vrrp_instance VI_1 {
 
 ## 12.4　Keepalived高可用服务器的“裂脑”问题
 
-N/A
+n/a
 
 ## 12.5　Keepalived双实例双主模式配置
 
@@ -180,15 +180,15 @@ N/A
 
 ## 12.7　解决服务监听的网卡上不存在IP地址问题
 
-N/A
+n/a
 
 ## 12.8　解决高可用服务只针对物理服务器的问题
 
-N/A
+n/a
 
 ## 12.9　解决多组Keepalived服务器在一个局域网的冲突问题
 
-N/A
+n/a
 
 ## 12.10　配置指定文件接收Keepalived服务日志
 
@@ -196,4 +196,4 @@ N/A
 
 ## 12.11　开发监测Keepalived裂脑的脚本
 
-N/A
+n/a
