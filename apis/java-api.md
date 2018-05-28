@@ -56,6 +56,10 @@
 - [Class Year](https://docs.oracle.com/javase/8/docs/api/java/time/Year.html)
 - [Class YearMonth](https://docs.oracle.com/javase/8/docs/api/java/time/YearMonth.html)
 
+## [Package `java.time.format`](https://docs.oracle.com/javase/8/docs/api/java/time/format/package-summary.html)
+
+- [Class DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html)
+
 ## [Package `java.util`](https://docs.oracle.com/javase/8/docs/api/java/util/package-summary.html)
 
 - [Interface Collection<E>](https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html)
