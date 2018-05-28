@@ -41,6 +41,7 @@
 
 ## [Package `java.text`](https://docs.oracle.com/javase/8/docs/api/java/text/package-summary.html)
 
+- [Class DateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/DateFormat.html)
 - [Class SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)
 
 ## [Package `java.time`](https://docs.oracle.com/javase/8/docs/api/java/time/package-summary.html)
@@ -62,6 +63,7 @@
 - [Class Calendar](https://docs.oracle.com/javase/8/docs/api/java/util/Calendar.html)
 - [Class Date](https://docs.oracle.com/javase/8/docs/api/java/util/Date.html)
 - [Class Hashtable<K,V>](https://docs.oracle.com/javase/8/docs/api/java/util/Hashtable.html)
+- [Class Locale](https://docs.oracle.com/javase/8/docs/api/java/util/Locale.html)
 - [Class Scanner](https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html)
 
 **[Package java.util.concurrent](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/package-summary.html)**
