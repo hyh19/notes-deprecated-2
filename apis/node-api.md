@@ -6,6 +6,16 @@
 
 [TOC]
 
+## [Buffer](https://nodejs.org/api/buffer.html)
+
+- [Class: Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
+  - [buf.compare](https://nodejs.org/api/buffer.html#buffer_buf_compare_target_targetstart_targetend_sourcestart_sourceend)
+  - [buf.copy](https://nodejs.org/api/buffer.html#buffer_buf_copy_target_targetstart_sourcestart_sourceend)
+  - [buf.length](https://nodejs.org/api/buffer.html#buffer_buf_length)
+  - [buf.toJSON](https://nodejs.org/api/buffer.html#buffer_buf_tojson)
+  - [buf.toString](https://nodejs.org/api/buffer.html#buffer_buf_tostring_encoding_start_end)
+  - [buf.write](https://nodejs.org/api/buffer.html#buffer_buf_write_string_offset_length_encoding)
+
 ## [Events](https://nodejs.org/api/events.html)
 
 - [Class: EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)
@@ -16,8 +26,10 @@
 
 - [Class: fs.ReadStream](https://nodejs.org/api/fs.html#fs_class_fs_readstream)
   - [Event: 'open'](https://nodejs.org/api/fs.html#fs_event_open)
+- [Class: fs.WriteStream](https://nodejs.org/api/fs.html#fs_class_fs_writestream)
 - [fs.appendFile](https://nodejs.org/api/fs.html#fs_fs_appendfile_path_data_options_callback)
 - [fs.createReadStream](https://nodejs.org/api/fs.html#fs_fs_createreadstream_path_options)
+- [fs.createWriteStream](https://nodejs.org/api/fs.html#fs_fs_createwritestream_path_options)
 - [fs.open](https://nodejs.org/api/fs.html#fs_fs_open_path_flags_mode_callback)
 - [fs.readFile](https://nodejs.org/api/fs.html#fs_fs_readfile_path_options_callback)
 - [fs.rename](https://nodejs.org/api/fs.html#fs_fs_rename_oldpath_newpath_callback)
@@ -50,8 +62,15 @@
 ## [Stream](https://nodejs.org/api/stream.html)
 
 - API for Stream Consumers
+  - [Writable Streams](https://nodejs.org/api/stream.html#stream_writable_streams)
+    - [Class: stream.Writable](https://nodejs.org/api/stream.html#stream_class_stream_writable)
+      - [writable.end](https://nodejs.org/api/stream.html#stream_writable_end_chunk_encoding_callback)
+      - [writable.write](https://nodejs.org/api/stream.html#stream_writable_write_chunk_encoding_callback)
   - [Readable Streams](https://nodejs.org/api/stream.html#stream_readable_streams)
     - [Class: stream.Readable](https://nodejs.org/api/stream.html#stream_class_stream_readable)
+      - [readable.pipe](https://nodejs.org/api/stream.html#stream_readable_pipe_destination_options)
+      - [readable.read](https://nodejs.org/api/stream.html#stream_readable_read_size)
+      - [readable.setEncoding](https://nodejs.org/api/stream.html#stream_readable_setencoding_encoding)
 
 ## [URL](https://nodejs.org/api/url.html)
 
