@@ -6,6 +6,16 @@
 
 [TOC]
 
+## [Buffer](https://nodejs.org/api/buffer.html)
+
+- [Class: Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
+  - [buf.compare](https://nodejs.org/api/buffer.html#buffer_buf_compare_target_targetstart_targetend_sourcestart_sourceend)
+  - [buf.copy](https://nodejs.org/api/buffer.html#buffer_buf_copy_target_targetstart_sourcestart_sourceend)
+  - [buf.length](https://nodejs.org/api/buffer.html#buffer_buf_length)
+  - [buf.toJSON](https://nodejs.org/api/buffer.html#buffer_buf_tojson)
+  - [buf.toString](https://nodejs.org/api/buffer.html#buffer_buf_tostring_encoding_start_end)
+  - [buf.write](https://nodejs.org/api/buffer.html#buffer_buf_write_string_offset_length_encoding)
+
 ## [Events](https://nodejs.org/api/events.html)
 
 - [Class: EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)
