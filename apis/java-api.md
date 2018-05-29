@@ -25,6 +25,8 @@
 - [Interface Runnable](https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html)
 - [Class Class<T>](https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html)
 - [Class ClassLoader](https://docs.oracle.com/javase/8/docs/api/java/lang/ClassLoader.html)
+- [Class StringBuffer](https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuffer.html)
+- [Class StringBuilder](https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html)
 
 ## [Package java.lang.reflect](https://docs.oracle.com/javase/8/docs/api/java/lang/reflect/package-summary.html)
 
