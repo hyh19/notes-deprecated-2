@@ -57,6 +57,8 @@
 - [Class MonthDay](https://docs.oracle.com/javase/8/docs/api/java/time/MonthDay.html)
 - [Class Year](https://docs.oracle.com/javase/8/docs/api/java/time/Year.html)
 - [Class YearMonth](https://docs.oracle.com/javase/8/docs/api/java/time/YearMonth.html)
+- [Class ZonedDateTime](https://docs.oracle.com/javase/8/docs/api/java/time/ZonedDateTime.html)
+- [Class ZoneId](https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html)
 
 ## [Package `java.time.format`](https://docs.oracle.com/javase/8/docs/api/java/time/format/package-summary.html)
 
