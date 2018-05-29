@@ -339,6 +339,8 @@ banana
 orange
 ```
 
+## Remove a Directory
+
 ```bash
 var fs = require("fs");
 
