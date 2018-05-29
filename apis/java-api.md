@@ -25,6 +25,8 @@
 - [Interface Runnable](https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html)
 - [Class Class<T>](https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html)
 - [Class ClassLoader](https://docs.oracle.com/javase/8/docs/api/java/lang/ClassLoader.html)
+- [Class StringBuffer](https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuffer.html)
+- [Class StringBuilder](https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html)
 
 ## [Package java.lang.reflect](https://docs.oracle.com/javase/8/docs/api/java/lang/reflect/package-summary.html)
 
@@ -55,6 +57,8 @@
 - [Class MonthDay](https://docs.oracle.com/javase/8/docs/api/java/time/MonthDay.html)
 - [Class Year](https://docs.oracle.com/javase/8/docs/api/java/time/Year.html)
 - [Class YearMonth](https://docs.oracle.com/javase/8/docs/api/java/time/YearMonth.html)
+- [Class ZonedDateTime](https://docs.oracle.com/javase/8/docs/api/java/time/ZonedDateTime.html)
+- [Class ZoneId](https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html)
 
 ## [Package `java.time.format`](https://docs.oracle.com/javase/8/docs/api/java/time/format/package-summary.html)
 
