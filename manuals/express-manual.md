@@ -4,7 +4,15 @@
 
 <http://expressjs.com/zh-cn/>
 
+<https://www.npmjs.com/package/express>
+
 <https://github.com/expressjs/express/>
+
+## Installation
+
+```bash
+npm install express --save
+```
 
 ## References
 
