@@ -17,6 +17,11 @@
   - [buf.toString](https://nodejs.org/api/buffer.html#buffer_buf_tostring_encoding_start_end)
   - [buf.write](https://nodejs.org/api/buffer.html#buffer_buf_write_string_offset_length_encoding)
 
+## [Console](https://nodejs.org/api/console.html#console_console)
+
+- [Class: Console](https://nodejs.org/api/console.html#console_class_console)
+  - [console.log](https://nodejs.org/api/console.html#console_console_log_data_args)
+
 ## [Events](https://nodejs.org/api/events.html)
 
 - [Class: EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter)
@@ -47,6 +52,16 @@
 - [fs.stat](https://nodejs.org/api/fs.html#fs_fs_stat_path_callback)
 - [fs.unlink](https://nodejs.org/api/fs.html#fs_fs_unlink_path_callback)
 - [fs.writeFile](https://nodejs.org/api/fs.html#fs_fs_writefile_file_data_options_callback)
+
+## [Global Objects](https://nodejs.org/api/globals.html)
+
+- [__dirname](https://nodejs.org/api/globals.html#globals_dirname)
+- [__filename](https://nodejs.org/api/globals.html#globals_filename)
+- [clearInterval](https://nodejs.org/api/globals.html#globals_clearinterval_intervalobject)
+- [clearTimeout](https://nodejs.org/api/globals.html#globals_cleartimeout_timeoutobject)
+- [console](https://nodejs.org/api/globals.html#globals_console)
+- [exports](https://nodejs.org/api/globals.html#globals_exports)
+- [setTimeout](https://nodejs.org/api/globals.html#globals_settimeout_callback_delay_args)
 
 ## [HTTP](https://nodejs.org/api/http.html)
 
