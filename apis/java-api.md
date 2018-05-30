@@ -55,6 +55,7 @@
 - [Class LocalDateTime](https://docs.oracle.com/javase/8/docs/api/java/time/LocalDateTime.html)
 - [Class LocalTime](https://docs.oracle.com/javase/8/docs/api/java/time/LocalTime.html)
 - [Class MonthDay](https://docs.oracle.com/javase/8/docs/api/java/time/MonthDay.html)
+- [Class Period](https://docs.oracle.com/javase/8/docs/api/java/time/Period.html)
 - [Class Year](https://docs.oracle.com/javase/8/docs/api/java/time/Year.html)
 - [Class YearMonth](https://docs.oracle.com/javase/8/docs/api/java/time/YearMonth.html)
 - [Class ZonedDateTime](https://docs.oracle.com/javase/8/docs/api/java/time/ZonedDateTime.html)
