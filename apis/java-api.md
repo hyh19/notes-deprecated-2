@@ -71,6 +71,7 @@
 - [Interface Comparator<T>](https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html)
 - [Interface Iterator<E>](https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html)
 - [Interface List<E>](https://docs.oracle.com/javase/8/docs/api/java/util/List.html)
+- [Interface ListIterator<E>](https://docs.oracle.com/javase/8/docs/api/java/util/ListIterator.html)
 - [Interface Set<E>](https://docs.oracle.com/javase/8/docs/api/java/util/Set.html)
 - [Class ArrayList<E>](https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html)
 - [Class Arrays](https://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html)
@@ -78,6 +79,7 @@
 - [Class Date](https://docs.oracle.com/javase/8/docs/api/java/util/Date.html)
 - [Class HashSet<E>](https://docs.oracle.com/javase/8/docs/api/java/util/HashSet.html)
 - [Class Hashtable<K,V>](https://docs.oracle.com/javase/8/docs/api/java/util/Hashtable.html)
+- [Class LinkedList<E>](https://docs.oracle.com/javase/8/docs/api/java/util/LinkedList.html)
 - [Class Locale](https://docs.oracle.com/javase/8/docs/api/java/util/Locale.html)
 - [Class Scanner](https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html)
 
