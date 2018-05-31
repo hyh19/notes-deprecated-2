@@ -21,8 +21,7 @@ app.all('/test', function (req, res) {
 app.listen(3000)
 ```
 
-Client
-```
+```bash
 $ curl -X GET "http://localhost:3000/hello"
 Hello World
 
@@ -44,7 +43,8 @@ HTTP method doesn't have any effect on this route!
 
 ## Routers
 
-`./things.js`
+`things.js`
+
 ```javascript
 var express = require('express')
 var router = express.Router()
@@ -60,7 +60,8 @@ router.post('/', function (req, res) {
 module.exports = router
 ```
 
-`./index.js`
+`index.js`
+
 ```javascript
 var express = require('express')
 var app = express()
@@ -72,11 +73,10 @@ app.use('/things', things)
 app.listen(3000)
 ```
 
-Client
-```
-$ curl -X GET "http://localhost:3000/things"
+```bash
+$ curl -X GET "http://localhost:3000/things/"
 GET route on things.
 
-$ curl -X POST "http://localhost:3000/things"
+$ curl -X POST "http://localhost:3000/things/"
 POST route on things.
 ```

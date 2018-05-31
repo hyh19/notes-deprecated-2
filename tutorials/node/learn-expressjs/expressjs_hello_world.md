@@ -10,18 +10,3 @@ app.get('/', function (req, res) {
 
 app.listen(3000)
 ```
-
-Server
-```
-$ nodemon index.js
-[nodemon] 1.13.3
-[nodemon] to restart at any time, enter `rs`
-[nodemon] watching: *.*
-[nodemon] starting `node index.js`
-```
-
-Client
-```
-$ curl "http://localhost:3000"
-Hello World
-```

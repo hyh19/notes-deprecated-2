@@ -6,9 +6,7 @@
 
 [TOC]
 
-## `java.io.*`
-
-### `java.io` [>>](https://docs.oracle.com/javase/8/docs/api/java/io/package-summary.html)
+## [Package `java.io`](https://docs.oracle.com/javase/8/docs/api/java/io/package-summary.html)
 
 - [Class ByteArrayOutputStream](https://docs.oracle.com/javase/8/docs/api/java/io/ByteArrayOutputStream.html)
 - [Class DataInputStream](https://docs.oracle.com/javase/8/docs/api/java/io/DataInputStream.html)
@@ -21,16 +19,16 @@
 - [Class PrintWriter](https://docs.oracle.com/javase/8/docs/api/java/io/PrintWriter.html)
 - [Class Reader](https://docs.oracle.com/javase/8/docs/api/java/io/Reader.html)
 
-## `java.lang.*`
-
-### `java.lang` [>>](https://docs.oracle.com/javase/8/docs/api/java/lang/package-summary.html)
+## [Package `java.lang`](https://docs.oracle.com/javase/8/docs/api/java/lang/package-summary.html)
 
 - [Interface AutoCloseable](https://docs.oracle.com/javase/8/docs/api/java/lang/AutoCloseable.html)
 - [Interface Runnable](https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html)
 - [Class Class<T>](https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html)
 - [Class ClassLoader](https://docs.oracle.com/javase/8/docs/api/java/lang/ClassLoader.html)
+- [Class StringBuffer](https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuffer.html)
+- [Class StringBuilder](https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html)
 
-**[Package java.lang.reflect](https://docs.oracle.com/javase/8/docs/api/java/lang/reflect/package-summary.html)**
+## [Package java.lang.reflect](https://docs.oracle.com/javase/8/docs/api/java/lang/reflect/package-summary.html)
 
 - [Interface InvocationHandler](https://docs.oracle.com/javase/8/docs/api/java/lang/reflect/InvocationHandler.html)
 - [Class Constructor<T>](https://docs.oracle.com/javase/8/docs/api/java/lang/reflect/Constructor.html)
@@ -39,24 +37,52 @@
 - [Class Proxy](https://docs.oracle.com/javase/8/docs/api/java/lang/reflect/Proxy.html)
 - [Class ThreadLocal<T>](https://docs.oracle.com/javase/8/docs/api/java/lang/ThreadLocal.html)
 
-
-### `java.net` [>>](https://docs.oracle.com/javase/8/docs/api/java/net/package-summary.html)
+## [Package `java.net`](https://docs.oracle.com/javase/8/docs/api/java/net/package-summary.html)
 
 - [Class URL](https://docs.oracle.com/javase/8/docs/api/java/net/URL.html)
 
-## [`java.text`](https://docs.oracle.com/javase/8/docs/api/java/text/package-summary.html)
+## [Package `java.text`](https://docs.oracle.com/javase/8/docs/api/java/text/package-summary.html)
 
+- [Class DateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/DateFormat.html)
 - [Class SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)
 
-## `java.util.*`
+## [Package `java.time`](https://docs.oracle.com/javase/8/docs/api/java/time/package-summary.html)
 
-### [`java.util`](https://docs.oracle.com/javase/8/docs/api/java/util/package-summary.html)
+- [Class Clock](https://docs.oracle.com/javase/8/docs/api/java/time/Clock.html)
+- [Class Duration](https://docs.oracle.com/javase/8/docs/api/java/time/Duration.html)
+- [Class Instant](https://docs.oracle.com/javase/8/docs/api/java/time/Instant.html)
+- [Class LocalDate](https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html)
+- [Class LocalDateTime](https://docs.oracle.com/javase/8/docs/api/java/time/LocalDateTime.html)
+- [Class LocalTime](https://docs.oracle.com/javase/8/docs/api/java/time/LocalTime.html)
+- [Class MonthDay](https://docs.oracle.com/javase/8/docs/api/java/time/MonthDay.html)
+- [Class Period](https://docs.oracle.com/javase/8/docs/api/java/time/Period.html)
+- [Class Year](https://docs.oracle.com/javase/8/docs/api/java/time/Year.html)
+- [Class YearMonth](https://docs.oracle.com/javase/8/docs/api/java/time/YearMonth.html)
+- [Class ZonedDateTime](https://docs.oracle.com/javase/8/docs/api/java/time/ZonedDateTime.html)
+- [Class ZoneId](https://docs.oracle.com/javase/8/docs/api/java/time/ZoneId.html)
+
+## [Package `java.time.format`](https://docs.oracle.com/javase/8/docs/api/java/time/format/package-summary.html)
+
+- [Class DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html)
+
+## [Package `java.util`](https://docs.oracle.com/javase/8/docs/api/java/util/package-summary.html)
 
 - [Interface Collection<E>](https://docs.oracle.com/javase/8/docs/api/java/util/Collection.html)
 - [Interface Comparator<T>](https://docs.oracle.com/javase/8/docs/api/java/util/Comparator.html)
+- [Interface Iterator<E>](https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html)
+- [Interface List<E>](https://docs.oracle.com/javase/8/docs/api/java/util/List.html)
+- [Interface ListIterator<E>](https://docs.oracle.com/javase/8/docs/api/java/util/ListIterator.html)
+- [Interface Map<K,V>](https://docs.oracle.com/javase/8/docs/api/java/util/Map.html)
+- [Interface Set<E>](https://docs.oracle.com/javase/8/docs/api/java/util/Set.html)
+- [Class ArrayList<E>](https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html)
+- [Class Arrays](https://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html)
 - [Class Calendar](https://docs.oracle.com/javase/8/docs/api/java/util/Calendar.html)
 - [Class Date](https://docs.oracle.com/javase/8/docs/api/java/util/Date.html)
+- [Class HashMap<K,V>](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html)
+- [Class HashSet<E>](https://docs.oracle.com/javase/8/docs/api/java/util/HashSet.html)
 - [Class Hashtable<K,V>](https://docs.oracle.com/javase/8/docs/api/java/util/Hashtable.html)
+- [Class LinkedList<E>](https://docs.oracle.com/javase/8/docs/api/java/util/LinkedList.html)
+- [Class Locale](https://docs.oracle.com/javase/8/docs/api/java/util/Locale.html)
 - [Class Scanner](https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html)
 
 **[Package java.util.concurrent](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/package-summary.html)**
@@ -75,7 +101,7 @@
 - [Interface Lock](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/Lock.html)
 - [Class ReentrantLock](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html)
 
-### `java.util.function` [>>](https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html)
+## [Package `java.util.function`](https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html)
 
 - [Interface BiFunction<T,U,R>](https://docs.oracle.com/javase/8/docs/api/java/util/function/BiFunction.html)
 - [Interface Consumer<T>](https://docs.oracle.com/javase/8/docs/api/java/util/function/Consumer.html)

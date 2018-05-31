@@ -89,7 +89,9 @@ apt-get install -y nodejs
 
 ## Tutorials
 
-[Learn Node.js](https://www.w3schools.com/nodejs/)
+[Learn Node.js (tutorialspoint)](https://www.tutorialspoint.com/nodejs/index.htm)
+
+[Learn Node.js (w3schools)](https://www.w3schools.com/nodejs/)
 
 ## Tools
 
